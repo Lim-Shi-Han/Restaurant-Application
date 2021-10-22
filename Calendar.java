@@ -23,7 +23,7 @@ public class Calendar{
   }
   
   public int getDay(){
-    day = cal.get(Calendar.DAY_OF_MONTH);
+    day = calendar.get(Calendar.DAY_OF_MONTH);
     return day;
   }
 }
