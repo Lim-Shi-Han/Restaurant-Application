@@ -20,7 +20,7 @@ public class Menu {
 		MenuItem food = new MenuItem(foodName, foodType, foodDescription, foodPrice);
 		menuArray.add(food);
 		System.out.println(foodName + " succesfully added!");
-		sc.close();
+		//sc.close();
 	}
 	
 	public void promotionCreate(){
@@ -44,5 +44,17 @@ public class Menu {
 			System.out.println(menuArray.get(i).getfoodName());
 		}
 		
+	}
+
+	public void menuUpdate(){
+
+
+	}
+
+	public void menuRemove(){
+
+
+
+
 	}
 }

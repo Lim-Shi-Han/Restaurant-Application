@@ -7,30 +7,35 @@ public class menutest {
 	public static void main(String[] args) {
 		Menu menu = new Menu();
 		
-		Scanner sc = new Scanner(System.in);
-		
-		int choice = 3;
+		Scanner sc1 = new Scanner(System.in);
+
+		int choice;
 		
 		do {
-			System.out.println("1. Create Menu Item\n2. Print Menu\n3. Quit");
-			choice = sc.nextInt();
-			sc.nextLine();
+			System.out.println("(1) Create Menu\n"
+					+ "(2) Create Promotion\n"
+					+ "(3) Quit\n"
+					+ "Enter the number of your choice: ");
+			
+			choice = sc1.nextInt();
+			
 			
 			switch(choice) {
-				case(1):
-					menu.menuCreate();
-					break;
-				case(2):
-					menu.menuPrint();
-					break;
-				case(3):
-					break;
-				default:
-					break;
-			}
-		}while(choice!=3);
+			case 1: menu.menuCreate();
+					System.out.println("Menu Created\n");
+				break;
+				
+			case 2:	
+					System.out.println("choice 2\n");
+				break;
+				
+			case 3:	
+					System.out.println("choice 3 \n");
+				break;
+		}
+
 		
-		sc.close();
-	}
+		}while(choice != 3);
+	} 
 
 }
