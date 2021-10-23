@@ -41,7 +41,7 @@ public class Menu {
 		int menuArraySize = menuArray.size();
 		System.out.println("Menu");
 		for(int i = 0; i < menuArraySize; i++) {
-			System.out.println(menuArray.get(i).getfoodName());
+			System.out.println("(" + (i+1) + ")\t" + menuArray.get(i).getfoodName());
 		}
 		
 	}
@@ -51,10 +51,24 @@ public class Menu {
 
 	}
 
-	public void menuRemove(){
+	public int menuSize() {
+		return(menuArray.size());
+	}
 
+	public void menuRemove(int RemoveIndex){
+		
 
-
+		menuArray.remove(RemoveIndex);
+		/*
+		int menuArraySize = menuArray.size();
+		System.out.println("");
+		for(int i = 0; i < menuArraySize; i++) {
+			if(menuArray.get(i).getfoodName() == RemoveName){
+				menuArray.remove(i);
+			}
+			
+		}
+		*/
 
 	}
 }
