@@ -34,16 +34,19 @@ public class menutest {
 
 			case 3:	
 					System.out.println("choice 3 selected\n");
-					System.out.printf("Please choose Menu item from 0 to %d to remove from the Menu", menu.menuSize());
+					System.out.printf("Please choose Menu item from 1 to %d to remove from the Menu", menu.menuSize());
 					menu.menuPrint();
-					int menuitem = sc1.nextInt();
-					menu.menuRemove(menuitem - 1);	//change to index
+					int menuitemRemove = sc1.nextInt();
+					menu.menuRemove(menuitemRemove - 1);	//change to index
 					
 				break;
 
 			case 4:	
 				System.out.println("choice 4 selected\n");
+				System.out.printf("Please choose Menu item from 1 to %d to update from the Menu", menu.menuSize());
 				menu.menuPrint();
+				int menuitemUpdate = sc1.nextInt();
+				menu.menuUpdate(menuitemUpdate -1);	//change to index
 					
 				break;
 

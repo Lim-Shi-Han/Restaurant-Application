@@ -28,6 +28,24 @@ public class MenuItem {
 	public double getfoodPrice() {
 		return foodPrice;
 	}
-	
+
+	/*
+	public void setfoodName(String foodName) {
+		this.foodName = foodName;
+		return;
+	}
+	public void setfoodType(String foodType) {
+		this.foodType = foodType;
+		return;
+	}
+	public void setfoodDescription(String foodDescription) {
+		this.foodDescription = foodDescription;
+		return;
+	}
+	public void setfoodPrice(double foodPrice) {
+		this.foodPrice = foodPrice;
+		return;
+	}
+	*/
 }
 

@@ -43,10 +43,29 @@ public class Menu {
 		for(int i = 0; i < menuArraySize; i++) {
 			System.out.println("(" + (i+1) + ")\t" + menuArray.get(i).getfoodName());
 		}
-		
+		System.out.println("\n");
 	}
 
-	public void menuUpdate(){
+	public void menuUpdate(int UpdateIndex){
+		Scanner sc= new Scanner(System.in);
+		
+		if(menuArray.size() <= 0) {
+			System.out.println("Menu is empty! There is no existing item to be updated.");
+			return;
+		}
+		
+
+		System.out.println("Update Name of food to: ");
+		String updatefoodName = sc.nextLine();
+		System.out.println("Update Type of food to: ");
+		String updatefoodType = sc.nextLine();
+		System.out.println("Update Description of food to: ");
+		String updatefoodDescription = sc.nextLine();
+		System.out.println("Update Price of food to: ");
+		double updatefoodPrice = sc.nextDouble();
+		MenuItem updatefood = new MenuItem(updatefoodName, updatefoodType, updatefoodDescription, updatefoodPrice);
+
+		menuArray.set(UpdateIndex,updatefood);
 
 
 	}
@@ -56,9 +75,13 @@ public class Menu {
 	}
 
 	public void menuRemove(int RemoveIndex){
-		
+		if(menuArray.size() <= 0) {
+			System.out.println("Menu is empty! There is no existing item to be removed.");
+			return;
+		}
 
 		menuArray.remove(RemoveIndex);
+
 		/*
 		int menuArraySize = menuArray.size();
 		System.out.println("");
