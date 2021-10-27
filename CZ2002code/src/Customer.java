@@ -1,3 +1,5 @@
+package resSys
+
 public class Customer {
 	
 	private String name;
