@@ -9,43 +9,75 @@ public class MenuItem {
 	private String foodDescription;
 	private double foodPrice;
 	
-	public MenuItem(String foodName, String foodType, String foodDescription, double foodPrice) {
-		this.foodName = foodName;
-		this.foodType = foodType;
-		this.foodDescription = foodDescription;
-		this.foodPrice = foodPrice;
+	public MenuItem() {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Name of food:");
+		this.foodName = sc.nextLine();
+		System.out.println("Type of food:");
+		this.foodType = sc.nextLine();
+		System.out.println("Description of food:");
+		this.foodDescription = sc.nextLine();
+		System.out.println("Price of food:");
+		this.foodPrice = sc.nextDouble();
+		System.out.println(foodName + " successfully added!");
 	}
 	
-	public String getfoodName() {
+	public void updateMenuItem(Menu menu) {
+		Scanner sc = new Scanner(System.in);	
+		
+		//User chooses which aspect of the promotion to update
+		int updateChoice;
+		do {
+			System.out.println("What do you want to update:\n1.Name\n2.Type\n3.Description\n4.Price\n5.Quit");
+			updateChoice = sc.nextInt();
+			sc.nextLine();
+			switch(updateChoice){
+			
+				case(1): //update name
+					System.out.println("Update name:");
+					foodName = sc.nextLine();
+					System.out.println();
+					break;
+					
+				case(2): //update type
+					System.out.println("Update type:");
+					foodType = sc.nextLine();
+					System.out.println();
+					break;
+					
+				case(3): //update description
+					System.out.println("Update description:");
+					foodDescription = sc.nextLine();
+					System.out.println();
+					break;
+					
+				case(4): //update price
+					System.out.println("Update price:");
+					foodPrice = sc.nextDouble();
+					System.out.println();
+					break;
+					
+				case(5): //user quitting
+					break;
+				
+				default:
+					System.out.println("Invalid input! Try again!");
+			}
+			
+		}while (updateChoice!=5);	
+	}
+	
+	public String getFoodName() {
 		return foodName;
 	}
-	public String getfoodType() {
+	public String getFoodType() {
 		return foodType;
 	}
-	public String getfoodDescription() {
+	public String getFoodDescription() {
 		return foodDescription;
 	}
-	public double getfoodPrice() {
+	public double getFoodPrice() {
 		return foodPrice;
 	}
-
-	/*
-	public void setfoodName(String foodName) {
-		this.foodName = foodName;
-		return;
-	}
-	public void setfoodType(String foodType) {
-		this.foodType = foodType;
-		return;
-	}
-	public void setfoodDescription(String foodDescription) {
-		this.foodDescription = foodDescription;
-		return;
-	}
-	public void setfoodPrice(double foodPrice) {
-		this.foodPrice = foodPrice;
-		return;
-	}
-	*/
+	
 }
-

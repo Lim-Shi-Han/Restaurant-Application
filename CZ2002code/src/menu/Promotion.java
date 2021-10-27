@@ -5,54 +5,118 @@ import java.util.*;
 public class Promotion {
 
 	private String promotionName;
-	private MenuItem[] menuArray;
-	private double promotionPrice;
+	private ArrayList<MenuItem> foodArray = new ArrayList<>();
 	private String promotionDescription;
+	private double promotionPrice;
 	
-	public Promotion(String promotionName, MenuItem[] menuArray, double promotionPrice, String promotionDescription) {
-		this.promotionName = promotionName;
-		this.menuArray = menuArray;
-		this.promotionPrice = promotionPrice;
-		this.promotionDescription = promotionDescription;
+	public Promotion(Menu menu) {
+		Scanner sc= new Scanner(System.in);
+		
+		//Name
+		System.out.println("Name of promotion:");
+		promotionName = sc.nextLine();
+		
+		//Menu Item
+		addMenuItem(menu);
+		
+		//Description
+		System.out.println("Description of promotion:");
+		promotionDescription = sc.nextLine();
+		
+		//Price
+		System.out.println("Price of promotion:");
+		promotionPrice = sc.nextDouble();
+		
+		System.out.println(promotionName + " successfully added!");
 	}
-	public void updatePromotion() {
-		Scanner sc = new Scanner(System.in);
-		int choice = 0;
-		while(choice!=5) {
-			System.out.println("What do you want to update:\n1. Name\n2.Menu Items\n3.Price\n4.Description\n5.Quit");
-			choice = sc.nextInt();
-			switch(choice){
+	
+	public void updatePromotion(Menu menu) {
+		Scanner sc = new Scanner(System.in);	
+		
+		//User chooses which aspect of the promotion to update
+		int updateChoice;
+		do {
+			System.out.println("What do you want to update:\n1.Name\n2.Menu Items\n3.Description\n4.Price\n5.Quit");
+			updateChoice = sc.nextInt();
+			sc.nextLine();
+			switch(updateChoice){
+			
 				case(1): //update name
 					System.out.println("Update name:");
-					setPromotionName(sc.nextLine());
+					promotionName = sc.nextLine();
+					System.out.println();
 					break;
 				case(2): //update menu item
-					System.out.println("Update Menu Itmes:");//TODO: to be updated when menu class is done in order to access array of MenuItems
-
+					System.out.println("1. Add or 2. Delete: ");
+					int add = sc.nextInt();
+					if(add==1) { //add
+						addMenuItem(menu);
+					}
+					if(add==2) { //remove
+						removeMenuItem();
+					}
+					System.out.println();
 					break;
-				case(3): //update price
-					System.out.println("Update price:");
-					setPromotionPrice(sc.nextDouble());
-					break;
-				case(4): //update description
+					
+				case(3): //update description
 					System.out.println("Update description:");
-					setPromotionDescription(sc.nextLine());
+					promotionDescription = sc.nextLine();
+					System.out.println();
 					break;
+					
+				case(4): //update price
+					System.out.println("Update price:");
+					promotionPrice = sc.nextDouble();
+					System.out.println();
+					break;
+					
 				case(5): //user quitting
 					break;
+				
 				default:
 					System.out.println("Invalid input! Try again!");
 			}
+			
+		}while (updateChoice!=5);	
+	}
+	
+	public void addMenuItem(Menu menu){ //displays all menuItem and let's user choose menuItem to add
+		Scanner sc = new Scanner(System.in);
+		int menuItemChoice;
+		ArrayList<MenuItem> menuItemArray = menu.getMenuItemArray();
+		MenuDisplay.menuItemPrintName(menu);
+		while(true) { //allows user to keep adding items
+			System.out.println("Add Menu Item (Choose -1 to exit):");
+			menuItemChoice = sc.nextInt();
+			if(menuItemChoice == -1)break;
+			foodArray.add(menuItemArray.get(menuItemChoice-1));
 		}
-		sc.close();		
+	}
+	
+	public void removeMenuItem() { //displays menuItems in promotion and let's user remove menuItem
+		Scanner sc = new Scanner(System.in);
+		int menuItemChoice;
+		while(true) { //allows user to keep removing items
+			if(foodArray.size() == 0) {
+				System.out.println("No Menu Items left");
+				break;
+			}
+			for(int i = 0; i < foodArray.size(); i++) {
+				System.out.println(i+1 + ". " + foodArray.get(i));
+			}
+			System.out.println("Remove Menu Item:");
+			menuItemChoice = sc.nextInt();
+			if(menuItemChoice == -1)break;
+			foodArray.remove(menuItemChoice-1);
+		}
 	}
 
 	public String getPromotionName() {
 		return this.promotionName;
 	}
 
-	public MenuItem[] getMenuArray() {
-		return this.menuArray;
+	public ArrayList<MenuItem> getFoodArray() {
+		return this.foodArray;
 	}	
 
 	public double getPromotionPrice() {
@@ -67,8 +131,8 @@ public class Promotion {
 		this.promotionName = promotionName;
 	}
 
-	public void setMenuArray(MenuItem[] menuArray) {
-		this.menuArray = menuArray;
+	public void setFoodArray(ArrayList<MenuItem> foodArray) {
+		this.foodArray = foodArray;
 	}
 
 	public void setPromotionPrice(double promotionPrice) {
