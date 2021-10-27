@@ -18,7 +18,13 @@ public class MenuItem {
 		System.out.println("Description of food:");
 		this.foodDescription = sc.nextLine();
 		System.out.println("Price of food:");
+		try{
 		this.foodPrice = sc.nextDouble();
+		}catch (InputMismatchException e){
+			System.out.println("Invalid input for price! Price has been set to 0.00");
+			this.foodPrice = 0;
+			}
+		
 		System.out.println(foodName + " successfully added!");
 	}
 	
