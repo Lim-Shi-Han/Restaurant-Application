@@ -24,8 +24,12 @@ public class Promotion {
 		promotionDescription = sc.nextLine();
 		
 		//Price
-		System.out.println("Price of promotion:");
-		promotionPrice = sc.nextDouble();
+		try{
+			System.out.println("Price of promotion:");
+			promotionPrice = sc.nextDouble();
+		}catch (InputMismatchException e){
+			throw new InputMismatchException("Price");
+		}
 		
 		System.out.println(promotionName + " successfully added!");
 	}
@@ -36,45 +40,59 @@ public class Promotion {
 		//User chooses which aspect of the promotion to update
 		int updateChoice;
 		do {
-			System.out.println("What do you want to update:\n1.Name\n2.Menu Items\n3.Description\n4.Price\n5.Quit");
-			updateChoice = sc.nextInt();
-			sc.nextLine();
-			switch(updateChoice){
-			
-				case(1): //update name
-					System.out.println("Update name:");
-					promotionName = sc.nextLine();
-					System.out.println();
-					break;
-				case(2): //update menu item
-					System.out.println("1. Add or 2. Delete: ");
-					int add = sc.nextInt();
-					if(add==1) { //add
-						addMenuItem(menu);
-					}
-					if(add==2) { //remove
-						removeMenuItem();
-					}
-					System.out.println();
-					break;
-					
-				case(3): //update description
-					System.out.println("Update description:");
-					promotionDescription = sc.nextLine();
-					System.out.println();
-					break;
-					
-				case(4): //update price
-					System.out.println("Update price:");
-					promotionPrice = sc.nextDouble();
-					System.out.println();
-					break;
-					
-				case(5): //user quitting
-					break;
+			try{
+				System.out.println("What do you want to update:\n1.Name\n2.Menu Items\n3.Description\n4.Price\n5.Quit");
+				updateChoice = sc.nextInt();
+				sc.nextLine();
+				switch(updateChoice){
 				
-				default:
-					System.out.println("Invalid input! Try again!");
+					case(1): //update name
+						System.out.println("Update name:");
+						promotionName = sc.nextLine();
+						System.out.println();
+						break;
+					case(2): //update menu item
+						try{
+							System.out.println("1. Add or 2. Delete: ");
+							int add = sc.nextInt();
+							if(add==1) { //add
+								addMenuItem(menu);
+							}
+							if(add==2) { //remove
+								removeMenuItem();
+							}
+							System.out.println();
+							break;
+						}catch (InputMismatchException e){
+							throw new InputMismatchException("Menu Item");
+						}catch (IndexOutOfBoundsException e){
+							throw new IndexOutOfBoundsException("Menu Item");
+						}
+						
+					case(3): //update description
+						System.out.println("Update description:");
+						promotionDescription = sc.nextLine();
+						System.out.println();
+						break;
+						
+					case(4): //update price
+						try{
+							System.out.println("Update price:");
+							promotionPrice = sc.nextDouble();
+							System.out.println();
+							break;
+						}catch (InputMismatchException e){
+							throw new InputMismatchException("Price");
+						}
+						
+					case(5): //user quitting
+						break;
+					
+					default: //indexOutOfBoundsException
+						System.out.println("Invalid input! Try again!");
+				}
+			}catch(InputMismatchException e){
+				throw new InputMismatchException("Choice");
 			}
 			
 		}while (updateChoice!=5);	

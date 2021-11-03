@@ -9,19 +9,35 @@ public class Menu {
 	private ArrayList<Promotion> promotionArray = new ArrayList<>();
 
 	public void menuItemCreate(){
-		MenuItem food = new MenuItem();
-		menuItemArray.add(food);
-		System.out.println("Menu Item Created\n");
+		try{
+			MenuItem food = new MenuItem();
+			menuItemArray.add(food);
+			System.out.println("Menu Item Created\n");
+		}catch(InputMismatchException e){
+			System.out.println("Input for price is invalid (not a double). Menu Item not created...");
+		}
 	}
 	
 	public void promotionCreate(){
-		if(menuItemArray.size() == 0) {
-			System.out.println("There is no Menu Item! Create a Menu Item first to add to the Promotion!");
-			return;
+		try{
+			if(menuItemArray.size() == 0) {
+				System.out.println("There is no Menu Item! Create a Menu Item first to add to the Promotion!");
+				return;
+			}
+			Promotion promo = new Promotion(this);
+			promotionArray.add(promo);
+			System.out.println("Promotion Created\n");
+		}catch (InputMismatchException e){
+			if(e.toString().contains("Price")){
+				System.out.println("Input for price is invalid (not a double). Promtion not created...");
+			}
+			else{
+				System.out.println("Input for menu item is invalid (not an integer). Promtion not created...");
+			}
 		}
-		Promotion promo = new Promotion(this);
-		promotionArray.add(promo);
-		System.out.println("Promotion Created\n");
+		catch (IndexOutOfBoundsException e){
+			System.out.println("Selection of menu item out of range. Promotion not created...");
+		}
 	}
 
 	public void menuItemUpdate(){
@@ -31,13 +47,27 @@ public class Menu {
 		}
 		Scanner sc = new Scanner(System.in);
 		//User to choose which menu item to update
-		System.out.println("List of Menu Item: ");
-		MenuDisplay.menuItemPrintName(this);
-		System.out.println("Update Menu Item: ");
-		int menuItemChoice = sc.nextInt();
-		sc.nextLine();
-		MenuItem menuItem = menuItemArray.get(menuItemChoice-1);
-		menuItem.updateMenuItem(this);
+		try{
+			System.out.println("List of Menu Item: ");
+			MenuDisplay.menuItemPrintName(this);
+			System.out.println("Update Menu Item: ");
+			int menuItemChoice = sc.nextInt();
+			sc.nextLine();
+			MenuItem menuItem = menuItemArray.get(menuItemChoice-1);
+			menuItem.updateMenuItem(this);
+		}catch (InputMismatchException e){
+			if(e.toString().contains("Choice")){
+				System.out.println("Choice of update option is invalid (not an integer). Menu Item not updated...");
+			}
+			else if(e.toString().contains("Price")){
+				System.out.println("Input for price is invalid (not a double). Menu Item update stops here...");
+			}
+			else{
+				System.out.println("Choice of menu item is invalid (not an integer). Menu item not updated...");
+			}
+		}catch (IndexOutOfBoundsException e){
+			System.out.println("Selection of menu item is out of range. Menu Item not updated...");
+		}
 	}
 	
 	public void promotionUpdate() {
@@ -47,6 +77,7 @@ public class Menu {
 		}
 		Scanner sc = new Scanner(System.in);
 		//User to choose which promotion item to update
+		try{
 		System.out.println("List of Promotion: ");
 		MenuDisplay.promotionPrintName(this);
 		System.out.println("Update Promotion: ");
@@ -54,6 +85,25 @@ public class Menu {
 		sc.nextLine();
 		Promotion promo = promotionArray.get(promotionChoice-1);
 		promo.updatePromotion(this);
+		}catch (InputMismatchException e){
+			if(e.toString().contains("Choice")){
+				System.out.println("Choice of update option is invalid (not an integer). Promotion not updated...");
+			}
+			else if(e.toString().contains("Price")){
+				System.out.println("Input for price is invalid (not a double). Promotion update stops here...");
+			}
+			else if(e.toString().contains("Menu Item")){
+				System.out.println("Choice of menu item is invalid (not an integer). Promotion update stops here...");
+			}
+			else{
+				System.out.println("Choice of promotion is invalid (not an integer). Promotion not updated...");
+			}
+		}catch (IndexOutOfBoundsException e){
+			if(e.toString().contains("Menu Item")){
+				System.out.println("Selection of menu item option is out of range. Promotion update stops here...");
+			}
+			System.out.println("Selection of promotion is out of range. Promotion not updated...");
+		}
 	}
 	
 
@@ -64,12 +114,18 @@ public class Menu {
 		}
 		Scanner sc = new Scanner(System.in);
 		//User to choose which menu item to remove
-		System.out.println("List of Menu Item: ");
-		MenuDisplay.menuItemPrintName(this);
-		System.out.println("Remove Menu Item: ");
-		int menuItemChoice = sc.nextInt();
-		sc.nextLine();
-		menuItemArray.remove(menuItemChoice-1);
+		try{
+			System.out.println("List of Menu Item: ");
+			MenuDisplay.menuItemPrintName(this);
+			System.out.println("Remove Menu Item: ");
+			int menuItemChoice = sc.nextInt();
+			sc.nextLine();
+			menuItemArray.remove(menuItemChoice-1);
+		}catch (InputMismatchException e){
+			System.out.println("Choice of menu item is invalid (not an integer). Menu Item not removed...");
+		}catch (IndexOutOfBoundsException e){
+			System.out.println("Selection of menu item is out of range. Menu Item not removed...");
+		}
 	}
 	
 	public void promotionRemove(){
@@ -78,13 +134,19 @@ public class Menu {
 			return;
 		}
 		Scanner sc = new Scanner(System.in);
-		//User to choose which menu item to remove
-		System.out.println("List of Promotion: ");
-		MenuDisplay.promotionPrintName(this);
-		System.out.println("Remove Promotion: ");
-		int promotionChoice = sc.nextInt();
-		sc.nextLine();
-		promotionArray.remove(promotionChoice-1);
+		//User to choose which promotion to remove
+		try{
+			System.out.println("List of Promotion: ");
+			MenuDisplay.promotionPrintName(this);
+			System.out.println("Remove Promotion: ");
+			int promotionChoice = sc.nextInt();
+			sc.nextLine();
+			promotionArray.remove(promotionChoice-1);
+		}catch (InputMismatchException e){
+			System.out.println("Choice of promotion is invalid (not an integer). Promotion not removed...");
+		}catch (IndexOutOfBoundsException e){
+			System.out.println("Selection of promotion is out of range. Promotion not removed...");
+		}
 	}
 	
 	
