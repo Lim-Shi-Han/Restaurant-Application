@@ -1,4 +1,4 @@
-package resSys;
+package table;
 
 public class Table {
 	private int number;

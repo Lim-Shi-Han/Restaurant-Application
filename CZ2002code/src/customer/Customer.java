@@ -1,4 +1,4 @@
-package resSys
+package customer;
 
 public class Customer {
 	
