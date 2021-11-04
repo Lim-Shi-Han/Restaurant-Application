@@ -4,13 +4,13 @@
 // public class Calendar{
   
 // 	  Calendar calendar = Calendar.getInstance();
-// 	  private String dateAndTime;
+// 	  private String timeStamp;
 // 	  private int week;
 // 	  private int month;
 // 	  private int day;
     
-// 	  public String getDateAndTime(){
-// 		  dateAndTime = calendar.getTime());
+// 	  public String timeStamp(){
+// 		  timeStamp = calendar.getTime());
 // 		  return dateAndTime;
 // 	  }
   
