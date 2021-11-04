@@ -1,13 +1,35 @@
 package menu;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.File;
 import java.util.*;
 
 public class menutest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		
+		
+		//for scan from input file
+		//System.setIn(new FileInputStream("CZ2002code/src/menu/Testcase.txt"));
+
 		Menu menu = new Menu();
 		
 		Scanner sc = new Scanner(System.in);
+		//for scan from input file
+		//Scanner sc = new Scanner(new File("CZ2002code/src/menu/Testcase.txt"));
+
+		//For output to text file
+		/*
+		String fileName = "CZ2002code/src/menu/Output.txt";
+		final boolean append = true, autoflush = true;
+		PrintStream printStream = new PrintStream(new FileOutputStream(fileName, append),
+		                                    autoflush);
+		System.setOut(printStream);
+		*/
 
 		int choice = 0;
 		
@@ -24,6 +46,7 @@ public class menutest {
 						+ "Enter the number of your choice: ");
 				
 				choice = sc.nextInt();
+				//if(sc.hasNextLine()) sc.nextLine();
 				sc.nextLine();
 				
 				switch(choice) {
@@ -56,11 +79,11 @@ public class menutest {
 				
 			}catch(InputMismatchException e){
 				System.out.println("Invalid choide (not an integer). Please try again...");
-				sc.nextLine();
+				if(sc.hasNextLine())sc.nextLine();
 			}
 			
 			System.out.println();
-
+			
 		}while(choice != 8);
 	} 
 

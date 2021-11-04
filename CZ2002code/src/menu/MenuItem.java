@@ -27,7 +27,7 @@ public class MenuItem {
 		//Price
 		System.out.println("Price of food:");
 		this.foodPrice = sc.nextDouble();
-		
+
 		System.out.println(foodName + " successfully added!");
 	}
 	
