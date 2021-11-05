@@ -1,8 +1,9 @@
 package menu;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Menu {
+public class Menu implements Serializable{
 	
 	private ArrayList<MenuItem> menuItemArray = new ArrayList<>();
 
@@ -20,11 +21,7 @@ public class Menu {
 	
 	public void promotionCreate(){
 		try{
-			if(menuItemArray.size() == 0) {
-				System.out.println("There is no Menu Item! Create a Menu Item first to add to the Promotion!");
-				return;
-			}
-			Promotion promo = new Promotion(this);
+			Promotion promo = new Promotion();
 			promotionArray.add(promo);
 			System.out.println("Promotion Created\n");
 		}catch (InputMismatchException e){
@@ -32,11 +29,8 @@ public class Menu {
 				System.out.println("Input for price is invalid (not a double). Promtion not created...");
 			}
 			else{
-				System.out.println("Input for menu item is invalid (not an integer). Promtion not created...");
+				System.out.println("Input for food item is invalid (not an integer). Promtion not created...");
 			}
-		}
-		catch (IndexOutOfBoundsException e){
-			System.out.println("Selection of menu item out of range. Promotion not created...");
 		}
 	}
 
@@ -54,7 +48,7 @@ public class Menu {
 			int menuItemChoice = sc.nextInt();
 			sc.nextLine();
 			MenuItem menuItem = menuItemArray.get(menuItemChoice-1);
-			menuItem.updateMenuItem(this);
+			menuItem.updateMenuItem();
 		}catch (InputMismatchException e){
 			if(e.toString().contains("Choice")){
 				System.out.println("Choice of update option is invalid (not an integer). Menu Item not updated...");
@@ -84,7 +78,7 @@ public class Menu {
 		int promotionChoice = sc.nextInt();
 		sc.nextLine();
 		Promotion promo = promotionArray.get(promotionChoice-1);
-		promo.updatePromotion(this);
+		promo.updatePromotion();
 		}catch (InputMismatchException e){
 			if(e.toString().contains("Choice")){
 				System.out.println("Choice of update option is invalid (not an integer). Promotion not updated...");
@@ -92,8 +86,8 @@ public class Menu {
 			else if(e.toString().contains("Price")){
 				System.out.println("Input for price is invalid (not a double). Promotion update stops here...");
 			}
-			else if(e.toString().contains("Menu Item")){
-				System.out.println("Choice of menu item is invalid (not an integer). Promotion update stops here...");
+			else if(e.toString().contains("Food Item")){
+				System.out.println("Choice of food item is invalid (not an integer). Promotion update stops here...");
 			}
 			else{
 				System.out.println("Choice of promotion is invalid (not an integer). Promotion not updated...");

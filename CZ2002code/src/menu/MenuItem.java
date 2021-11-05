@@ -1,8 +1,9 @@
 package menu;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class MenuItem {
+public class MenuItem implements Serializable{
 
 	private String foodName;
 	private String foodType;
@@ -31,7 +32,7 @@ public class MenuItem {
 		System.out.println(foodName + " successfully added!");
 	}
 	
-	public void updateMenuItem(Menu menu) {
+	public void updateMenuItem() {
 		Scanner sc = new Scanner(System.in);	
 		
 		//User chooses which aspect of the promotion to update

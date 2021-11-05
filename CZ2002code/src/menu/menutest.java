@@ -2,6 +2,8 @@ package menu;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,9 +16,21 @@ public class menutest {
 		
 		
 		//for scan from input file
-		//System.setIn(new FileInputStream("CZ2002code/src/menu/Testcase.txt"));
+		// System.setIn(new FileInputStream("CZ2002code/src/menu/Testcase.txt"));
 
 		Menu menu = new Menu();
+		String menuFile = "menu.bin";
+		try{
+			ObjectInputStream is = new ObjectInputStream(new FileInputStream(menuFile));
+			menu = (Menu) is.readObject();
+			is.close();
+		}catch (FileNotFoundException e){
+			e.printStackTrace();
+		}catch (IOException e){
+			e.printStackTrace();
+		}catch (ClassNotFoundException e){
+			System.out.println("No menu found. Creating new menu...");
+		}
 		
 		Scanner sc = new Scanner(System.in);
 		//for scan from input file
@@ -85,6 +99,17 @@ public class menutest {
 			System.out.println();
 			
 		}while(choice != 8);
+		
+		try{
+			ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(menuFile));
+			os.writeObject(menu);
+			os.close();
+		}catch (FileNotFoundException e){
+			e.printStackTrace();
+		}catch (IOException e){
+			e.printStackTrace();
+		}
+
 	} 
 
 }

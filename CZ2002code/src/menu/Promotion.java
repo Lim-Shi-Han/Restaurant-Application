@@ -1,15 +1,16 @@
 package menu;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Promotion {
+public class Promotion implements Serializable{
 
 	private String promotionName;
-	private ArrayList<MenuItem> foodArray = new ArrayList<>();
+	private ArrayList<String> foodArray = new ArrayList<>();
 	private String promotionDescription;
 	private double promotionPrice;
 	
-	public Promotion(Menu menu) {
+	public Promotion() {
 		Scanner sc= new Scanner(System.in);
 		
 		//Name
@@ -17,7 +18,7 @@ public class Promotion {
 		promotionName = sc.nextLine();
 		
 		//Menu Item
-		addMenuItem(menu);
+		addMenuItem();
 		
 		//Description
 		System.out.println("Description of promotion:");
@@ -34,7 +35,7 @@ public class Promotion {
 		System.out.println(promotionName + " successfully added!");
 	}
 	
-	public void updatePromotion(Menu menu) {
+	public void updatePromotion() {
 		Scanner sc = new Scanner(System.in);	
 		
 		//User chooses which aspect of the promotion to update
@@ -56,7 +57,7 @@ public class Promotion {
 							System.out.println("1. Add or 2. Delete: ");
 							int add = sc.nextInt();
 							if(add==1) { //add
-								addMenuItem(menu);
+								addMenuItem();
 							}
 							if(add==2) { //remove
 								removeMenuItem();
@@ -64,9 +65,9 @@ public class Promotion {
 							System.out.println();
 							break;
 						}catch (InputMismatchException e){
-							throw new InputMismatchException("Menu Item");
+							throw new InputMismatchException("Food Item");
 						}catch (IndexOutOfBoundsException e){
-							throw new IndexOutOfBoundsException("Menu Item");
+							throw new IndexOutOfBoundsException("Food Item");
 						}
 						
 					case(3): //update description
@@ -98,16 +99,18 @@ public class Promotion {
 		}while (updateChoice!=5);	
 	}
 	
-	public void addMenuItem(Menu menu){ //displays all menuItem and let's user choose menuItem to add
+	public void addMenuItem(){ //allows users to add food items
 		Scanner sc = new Scanner(System.in);
-		int menuItemChoice;
-		ArrayList<MenuItem> menuItemArray = menu.getMenuItemArray();
-		MenuDisplay.menuItemPrintName(menu);
-		while(true) { //allows user to keep adding items
-			System.out.println("Add Menu Item (Choose -1 to exit):");
-			menuItemChoice = sc.nextInt();
-			if(menuItemChoice == -1)break;
-			foodArray.add(menuItemArray.get(menuItemChoice-1));
+		try{
+			System.out.println("How many food items do you want to add in the promotion:");
+			int numberOfFood = sc.nextInt();
+			sc.nextLine();
+			for(int i = 0; i < numberOfFood; i++){
+				System.out.println("Insert food item:");
+				foodArray.add(sc.nextLine());
+			}
+		}catch (InputMismatchException e){
+			throw new InputMismatchException();
 		}
 	}
 	
@@ -120,12 +123,18 @@ public class Promotion {
 				break;
 			}
 			for(int i = 0; i < foodArray.size(); i++) {
-				System.out.println(i+1 + ". " + foodArray.get(i));
+				System.out.println("(" + i+1 + ") " + foodArray.get(i));
 			}
-			System.out.println("Remove Menu Item:");
-			menuItemChoice = sc.nextInt();
-			if(menuItemChoice == -1)break;
-			foodArray.remove(menuItemChoice-1);
+			try{
+				System.out.println("Remove Menu Item:");
+				menuItemChoice = sc.nextInt();
+				if(menuItemChoice == -1)break;
+				foodArray.remove(menuItemChoice-1);
+			}catch (InputMismatchException e){
+				throw new InputMismatchException();
+			}catch (IndexOutOfBoundsException e){
+				throw new IndexOutOfBoundsException();
+			}
 		}
 	}
 
@@ -133,7 +142,7 @@ public class Promotion {
 		return this.promotionName;
 	}
 
-	public ArrayList<MenuItem> getFoodArray() {
+	public ArrayList<String> getFoodArray() {
 		return this.foodArray;
 	}	
 
@@ -149,7 +158,7 @@ public class Promotion {
 		this.promotionName = promotionName;
 	}
 
-	public void setFoodArray(ArrayList<MenuItem> foodArray) {
+	public void setFoodArray(ArrayList<String> foodArray) {
 		this.foodArray = foodArray;
 	}
 
