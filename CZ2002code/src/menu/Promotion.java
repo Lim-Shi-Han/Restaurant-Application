@@ -18,7 +18,7 @@ public class Promotion implements Serializable{
 		promotionName = sc.nextLine();
 		
 		//Menu Item
-		addMenuItem();
+		addFoodItem();
 		
 		//Description
 		System.out.println("Description of promotion:");
@@ -57,10 +57,10 @@ public class Promotion implements Serializable{
 							System.out.println("1. Add or 2. Delete: ");
 							int add = sc.nextInt();
 							if(add==1) { //add
-								addMenuItem();
+								addFoodItem();
 							}
 							if(add==2) { //remove
-								removeMenuItem();
+								removeFoodItem();
 							}
 							System.out.println();
 							break;
@@ -99,7 +99,7 @@ public class Promotion implements Serializable{
 		}while (updateChoice!=5);	
 	}
 	
-	public void addMenuItem(){ //allows users to add food items
+	public void addFoodItem(){ //allows users to add food items
 		Scanner sc = new Scanner(System.in);
 		try{
 			System.out.println("How many food items do you want to add in the promotion:");
@@ -114,7 +114,7 @@ public class Promotion implements Serializable{
 		}
 	}
 	
-	public void removeMenuItem() { //displays menuItems in promotion and let's user remove menuItem
+	public void removeFoodItem() { //displays menuItems in promotion and let's user remove menuItem
 		Scanner sc = new Scanner(System.in);
 		int menuItemChoice;
 		while(true) { //allows user to keep removing items
