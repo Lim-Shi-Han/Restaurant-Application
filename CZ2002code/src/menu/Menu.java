@@ -109,7 +109,6 @@ public class Menu implements Serializable{
 		Scanner sc = new Scanner(System.in);
 		//User to choose which menu item to remove
 		try{
-			System.out.println("List of Menu Item: ");
 			MenuDisplay.menuItemPrintName(this);
 			System.out.println("Remove Menu Item: ");
 			int menuItemChoice = sc.nextInt();
@@ -130,7 +129,6 @@ public class Menu implements Serializable{
 		Scanner sc = new Scanner(System.in);
 		//User to choose which promotion to remove
 		try{
-			System.out.println("List of Promotion: ");
 			MenuDisplay.promotionPrintName(this);
 			System.out.println("Remove Promotion: ");
 			int promotionChoice = sc.nextInt();

@@ -11,7 +11,7 @@
     
 // 	  public String timeStamp(){
 // 		  timeStamp = calendar.getTime());
-// 		  return dateAndTime;
+// 		  return timeStamp;
 // 	  }
   
 // 	  public int getWeek(){
