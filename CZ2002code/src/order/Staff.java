@@ -95,7 +95,7 @@ public class Staff {
 		return staffID;
 	}
 	
-	public String jobTitle() {
+	public String getjobTitle() {
 		return jobTitle;
 	}
 }
