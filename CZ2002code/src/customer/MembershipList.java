@@ -44,7 +44,7 @@ public class MembershipList {
 
     }
 
-    public void staffRemove(){
+    public void membershipRemove(){
         Scanner sc = new Scanner(System.in);
         int choice;
         printMembershipName();
