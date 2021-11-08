@@ -32,10 +32,10 @@ public class Order {
                 sc.nextLine();
                 
                 switch(choice){
-                    case 1: 
+                    case 1: //Print menu
                         MenuDisplay.menuPrintName(menu);
                         break;
-                    case 2: 
+                    case 2: //Add menu item
                         MenuDisplay.menuItemPrintName(menu);
                         System.out.println("Choose menu item to add to your order:");
                         selection = sc.nextInt();
@@ -44,7 +44,7 @@ public class Order {
                         menuItemArray.add(menuItem);
                         System.out.println(menuItem.getFoodName() + " added to your order!");
                         break;
-                    case 3:
+                    case 3: //Add promotion
                         MenuDisplay.promotionPrintName(menu);
                         System.out.println("Choose promotion to add to your order:");
                         selection = sc.nextInt();
@@ -53,35 +53,31 @@ public class Order {
                         promotionArray.add(promotion);
                         System.out.println(promotion.getPromotionName() + " added to your order!");
                         break;
-                    case 4:
-                        if(menuItemArray.size() == 0){
-                            System.out.println("You have no menu item in your order!");
-                        }
+                    case 4: //Remove menu item
                         orderMenuItemPrintNamePrice();
+                        if(menuItemArray.size() == 0)break; //If no menu item break here
                         System.out.println("Choose menu item to remove from your order:");
                         selection = sc.nextInt();
                         sc.nextLine();
                         menuItem = menuItemArray.remove(selection-1);
                         System.out.println(menuItem.getFoodName() + " removed!");
                         break;
-                    case 5:
-                        if(promotionArray.size() == 0){
-                            System.out.println("You have no promotion in your order!");
-                        }
+                    case 5: //Remove promotion
                         orderPromotionPrintNamePrice();
+                        if(menuItemArray.size() == 0)break; //If no promotion break here
                         System.out.println("Choose promotion to remove from your order:");
                         selection = sc.nextInt();
                         sc.nextLine();
                         promotion = promotionArray.remove(selection-1);
                         System.out.println(promotion.getPromotionName() + " removed!");
                         break;
-                    case 6:
+                    case 6: //Print order
                         orderMenuItemPrintNamePrice();
                         System.out.println();
                         orderPromotionPrintNamePrice();
                         break;
-                    case 7: //insert in salesReport database
-                        //maybe orderArray.add(this) or smth?
+                    case 7: //Insert in salesReport database
+                        //Maybe orderArray.add(this) or smth?
                         break;
                     case 8:
                         break;
@@ -89,13 +85,17 @@ public class Order {
                         System.out.println("Input is out of range. Please try again...");
                 }
             }catch(InputMismatchException e){
-				System.out.println("Invalid choide (not an integer). Please try again...");
+				System.out.println("Invalid choice (not an integer). Please try again...");
 				if(sc.hasNextLine())sc.nextLine();
 			}
         }while (choice != 8);
     }
 
     public void orderMenuItemPrintNamePrice(){
+        if(menuItemArray.size() == 0){
+            System.out.println("You have no menu item in your order!");
+            return;
+        }
         int menuItemArraySize = menuItemArray.size();
 		System.out.println("List of menu item in your order");
 		for(int i = 0; i < menuItemArraySize; i++) {
@@ -104,6 +104,10 @@ public class Order {
     }
 
     public void orderPromotionPrintNamePrice(){
+        if(promotionArray.size() == 0){
+            System.out.println("You have no promotion in your order!");
+            return;
+        }
         int promotionArraySize = promotionArray.size();
 		System.out.println("List of promotion in your order");
 		for(int i = 0; i < promotionArraySize; i++) {

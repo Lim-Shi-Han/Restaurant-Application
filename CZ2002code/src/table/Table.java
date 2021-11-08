@@ -4,7 +4,7 @@ public class Table {
 	private int number;
 	private int seating;
 	private boolean reserved;
-	private boolean occupied ;
+	private boolean occupied;
         private int nump;
 	
 	public Table(int number, int seating, boolean reserved, boolean occupied)

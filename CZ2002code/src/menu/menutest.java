@@ -83,7 +83,7 @@ public class MenuTest {
 				}
 				
 			}catch(InputMismatchException e){
-				System.out.println("Invalid choide (not an integer). Please try again...");
+				System.out.println("Invalid choice (not an integer). Please try again...");
 				if(sc.hasNextLine())sc.nextLine();
 			}
 			
