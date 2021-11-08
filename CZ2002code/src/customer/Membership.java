@@ -4,7 +4,7 @@ public class Membership {
 	private String name;
 	private int phoneNum;
 	private int membershipId;
-	public static final float discount = (float) 10.00;
+	public static final double discount = 10;
 	
 	public Membership(String name, int phoneNum, int membershipId)
 	{

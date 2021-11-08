@@ -4,19 +4,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.File;
 import java.util.*;
 
-public class menutest {
+public class MenuTest {
 
 	public static void main(String[] args) throws IOException {
-		
-		
-		//for scan from input file
-		// System.setIn(new FileInputStream("CZ2002code/src/menu/Testcase.txt"));
 
 		Menu menu = new Menu();
 		String menuFile = "menu.bin";
@@ -33,18 +27,7 @@ public class menutest {
 		}
 		
 		Scanner sc = new Scanner(System.in);
-		//for scan from input file
-		//Scanner sc = new Scanner(new File("CZ2002code/src/menu/Testcase.txt"));
-
-		//For output to text file
-		/*
-		String fileName = "CZ2002code/src/menu/Output.txt";
-		final boolean append = true, autoflush = true;
-		PrintStream printStream = new PrintStream(new FileOutputStream(fileName, append),
-		                                    autoflush);
-		System.setOut(printStream);
-		*/
-
+		
 		int choice = 0;
 		
 		do {
@@ -60,35 +43,43 @@ public class menutest {
 						+ "Enter the number of your choice: ");
 				
 				choice = sc.nextInt();
-				//if(sc.hasNextLine()) sc.nextLine();
 				sc.nextLine();
 				
 				switch(choice) {
-					case 1: menu.menuItemCreate();
+					case 1: 
+						menu.menuItemCreate();
 						break;
 						
-					case 2:	menu.promotionCreate();
+					case 2:	
+						menu.promotionCreate();
 						break;
 						
-					case 3:	menu.menuItemUpdate();
+					case 3:	
+						menu.menuItemUpdate();
 						break;
 						
-					case 4: menu.promotionUpdate();
+					case 4: 
+						menu.promotionUpdate();
 						break;
 						
-					case 5: menu.menuItemRemove();
+					case 5: 
+						menu.menuItemRemove();
 						break;
 						
-					case 6: menu.promotionRemove();
+					case 6: 
+						menu.promotionRemove();
 						break;
 					
-					case 7: MenuDisplay.menuPrintName(menu);
+					case 7: 
+						MenuDisplay.menuPrintName(menu);
 						break;
 						
-					case 8: System.out.println("Quitting...");
+					case 8: 
+						System.out.println("Quitting...");
 						break;
 					
-					default: System.out.println("Input is out of range. Please try again...");
+					default: 
+						System.out.println("Input is out of range. Please try again...");
 				}
 				
 			}catch(InputMismatchException e){
