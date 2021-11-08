@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.*;
 
-public class MenuTest {
+public class menutest {
 
 	public static void main(String[] args) throws IOException {
 
