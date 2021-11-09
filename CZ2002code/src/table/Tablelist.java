@@ -1,5 +1,5 @@
 package table;
 
-public class tablelist {
+public class TableList {
     
 }

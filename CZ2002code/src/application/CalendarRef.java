@@ -1,7 +1,7 @@
 package application;
 
 import java.util.*;  
-public class Calendar{
+public class CalendarRef{
   
   Calendar calendar = Calendar.getInstance();
   Date reserved = calendar.getTime();
@@ -11,12 +11,12 @@ public class Calendar{
   private int day;
     
   public String timeStamp(){
-    timeStamp = calendar.getTime());
+    timeStamp = calendar.getTime().toString();
     return timeStamp;
   }
   
   public int getWeek(){
-    week = calendar.getWeekYear;
+    week = calendar.getWeekYear();
     return week;
   }
   
@@ -32,7 +32,7 @@ public class Calendar{
   
   public String reservedDate(int year, int month, int day, int hour, int min){
     Calendar rDate = new GregorianCalendar(year, month, day, hour, min);
-    return rDate;
+    return rDate.toString();
   }
   
 }

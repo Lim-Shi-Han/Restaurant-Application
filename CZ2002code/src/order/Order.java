@@ -8,6 +8,8 @@ public class Order {
     String customerName;
     String staffName;
     int tableNumber;
+    double totalPrice;
+    Date date;
 
     Order(Menu menu){
         
@@ -113,5 +115,21 @@ public class Order {
 		for(int i = 0; i < promotionArraySize; i++) {
 			System.out.format("%-10d%-50s%16.2f\n",i+1, promotionArray.get(i).getPromotionName(), promotionArray.get(i).getPromotionPrice());
 		}
+    }
+    
+    public Date getDate() {
+        return this.date;
+    }
+
+    public double getTotalPrice() {
+        return this.totalPrice;
+    }
+
+    public ArrayList<MenuItem> getMenuItemArray() {
+        return this.menuItemArray;
+    }
+
+    public ArrayList<Promotion> getPromotionArray() {
+        return this.promotionArray;
     }
 }
