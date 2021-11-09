@@ -30,8 +30,8 @@ public class Calendar{
     return day;
   }
   
-  public String reservedDate(int Year, int Month, int Day, int Hour, int Min){
-    Calendar rDate = new GregorianCalendar(Year, Month, Day, Hour, Min);
+  public String reservedDate(int year, int month, int day, int hour, int min){
+    Calendar rDate = new GregorianCalendar(year, month, day, hour, min);
     return rDate;
   }
   
