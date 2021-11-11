@@ -9,7 +9,7 @@ public class Order {
     String staffName;
     int tableNumber;
     double totalPrice;
-    Date date;
+    Calendar date;
 
     Order(Menu menu){
         
@@ -101,7 +101,7 @@ public class Order {
         int menuItemArraySize = menuItemArray.size();
 		System.out.println("List of menu item in your order");
 		for(int i = 0; i < menuItemArraySize; i++) {
-			System.out.format("%-10d%-50s%16.2f\n",i+1, menuItemArray.get(i).getFoodName(), menuItemArray.get(i).getFoodPrice());
+			System.out.format("%-10d%-50s%16.2f\n",(i+1), menuItemArray.get(i).getFoodName(), menuItemArray.get(i).getFoodPrice());
 		}
     }
 
@@ -113,11 +113,11 @@ public class Order {
         int promotionArraySize = promotionArray.size();
 		System.out.println("List of promotion in your order");
 		for(int i = 0; i < promotionArraySize; i++) {
-			System.out.format("%-10d%-50s%16.2f\n",i+1, promotionArray.get(i).getPromotionName(), promotionArray.get(i).getPromotionPrice());
+			System.out.format("%-10d%-50s%16.2f\n",(i+1), promotionArray.get(i).getPromotionName(), promotionArray.get(i).getPromotionPrice());
 		}
     }
     
-    public Date getDate() {
+    public Calendar getDate() {
         return this.date;
     }
 

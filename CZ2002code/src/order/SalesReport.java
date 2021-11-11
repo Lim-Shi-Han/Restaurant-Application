@@ -5,13 +5,13 @@ import menu.*;
 
 public class SalesReport {
     
-    private Map<Date, Double> dailySales = new HashMap<Date, Double>(); //tracks daily sales
+    private Map<Calendar, Double> dailySales = new LinkedHashMap<Calendar, Double>(); //tracks daily sales
     private ArrayList<Order> orderHistory = new ArrayList<>(); //contains all the orders
-    private Map<String, Map<Date, Integer>> dailyMenuItemPromotionCount = new HashMap<String, Map<Date, Integer>>(); //contains menu items and promotions and stores number of items sold per day
+    private Map<String, Map<Calendar, Integer>> dailyMenuItemPromotionCount = new LinkedHashMap<String, Map<Calendar, Integer>>(); //contains menu items and promotions and stores number of items sold per day
 
     public void updateSalesReport(Order order) {
 
-        Date orderDate = order.getDate();
+        Calendar orderDate = order.getDate();
 
         orderHistory.add(order); //add order to array of order
 
@@ -59,7 +59,7 @@ public class SalesReport {
         System.out.println("Order added to order history");
     }
 
-    public Map<Date,Double> getDailySales() {
+    public Map<Calendar,Double> getDailySales() {
         return this.dailySales;
     }
 
@@ -67,7 +67,7 @@ public class SalesReport {
         return this.orderHistory;
     }
 
-    public Map<String,Map<Date,Integer>> getDailyMenuItemPromotionCount() {
+    public Map<String,Map<Calendar,Integer>> getDailyMenuItemPromotionCount() {
         return this.dailyMenuItemPromotionCount;
     }
 }

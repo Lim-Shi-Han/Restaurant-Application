@@ -65,7 +65,7 @@ public class StaffList {
             return;
         }
         for (int i = 0; i < staffArray.size(); i++){
-            System.out.println("(" + i+1 + ")" + staffArray.get(i).getStaffName());
+            System.out.println("(" + (i+1) + ")" + staffArray.get(i).getStaffName());
         }
     }
 

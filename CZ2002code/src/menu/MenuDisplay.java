@@ -12,7 +12,7 @@ public class MenuDisplay {
 			for(int i = 0; i < menuItemArraySize; i++) {
 				
 				if(s.equalsIgnoreCase(menu.getMenuItemArray().get(i).getFoodType())){
-					System.out.format("%-10d%-50s%16.2f\n",i+1, menu.getMenuItemArray().get(i).getFoodName(), menu.getMenuItemArray().get(i).getFoodPrice());
+					System.out.format("%-10d%-50s%16.2f\n",(i+1), menu.getMenuItemArray().get(i).getFoodName(), menu.getMenuItemArray().get(i).getFoodPrice());
 					System.out.format("          :  %-50s\n", menu.getMenuItemArray().get(i).getFoodDescription());
 					System.out.println();
 				}
@@ -36,13 +36,13 @@ public class MenuDisplay {
 				break;
 			}
 			if(exists == false){
-				System.out.format("%-10d%-50s%16.2f\n",i+1, menu.getPromotionArray().get(i).getPromotionName(), menu.getPromotionArray().get(i).getPromotionPrice());	
+				System.out.format("%-10d%-50s%16.2f\n",(i+1), menu.getPromotionArray().get(i).getPromotionName(), menu.getPromotionArray().get(i).getPromotionPrice());	
 			}
 			*/
 
 		for(int i = 0; i < promotionArraySize; i++) {
-			//System.out.println(i+1 + ". " + menu.getPromotionArray().get(i).getPromotionName() + "\t--S$" + menu.getPromotionArray().get(i).getPromotionPrice());
-			System.out.format("%-10d%-50s%16.2f\n",i+1, menu.getPromotionArray().get(i).getPromotionName(), menu.getPromotionArray().get(i).getPromotionPrice());		
+			//System.out.println((i+1) + ". " + menu.getPromotionArray().get(i).getPromotionName() + "\t--S$" + menu.getPromotionArray().get(i).getPromotionPrice());
+			System.out.format("%-10d%-50s%16.2f\n",(i+1), menu.getPromotionArray().get(i).getPromotionName(), menu.getPromotionArray().get(i).getPromotionPrice());		
 		}
 	}
 	

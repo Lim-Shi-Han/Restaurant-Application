@@ -67,7 +67,7 @@ public class MembershipList {
             return;
         }
         for (int i = 0; i < membershipArray.size(); i++){
-            System.out.println("(" + i+1 + ")" + membershipArray.get(i).getName());
+            System.out.println("(" + (i+1) + ")" + membershipArray.get(i).getName());
         }
     }
 }

@@ -1,6 +1,7 @@
 package application;
 
-import java.util.*;  
+import java.util.*; 
+import java.text.*; 
 public class CalendarRef{
   
   Calendar calendar = Calendar.getInstance();
@@ -33,6 +34,10 @@ public class CalendarRef{
   public String reservedDate(int year, int month, int day, int hour, int min){
     Calendar rDate = new GregorianCalendar(year, month, day, hour, min);
     return rDate.toString();
+  }
+
+  public static String getMonth(int month) {
+    return new DateFormatSymbols().getMonths()[month-1];
   }
   
 }

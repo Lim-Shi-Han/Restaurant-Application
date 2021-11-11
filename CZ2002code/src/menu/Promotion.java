@@ -123,7 +123,7 @@ public class Promotion implements Serializable{
 				break;
 			}
 			for(int i = 0; i < foodArray.size(); i++) {
-				System.out.println("(" + i+1 + ") " + foodArray.get(i));
+				System.out.println("(" + (i+1) + ") " + foodArray.get(i));
 			}
 			try{
 				System.out.println("Remove Menu Item:");
