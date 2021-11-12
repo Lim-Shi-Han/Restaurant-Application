@@ -9,6 +9,10 @@ public class MenuItem implements Serializable{
 	private String foodType;
 	private String foodDescription;
 	private double foodPrice;
+
+	enum foodType{
+		MAINS, SIDES, DESSERSTS, DRINKS;
+	}
 	
 	public MenuItem() {
 		Scanner sc= new Scanner(System.in);
@@ -18,8 +22,32 @@ public class MenuItem implements Serializable{
 		this.foodName = sc.nextLine();
 
 		//Type
-		System.out.println("Type of food:");
-		this.foodType = sc.nextLine();
+		System.out.println("Enter number from 1-4 for Type of food: \n"
+		+ "(1) MAINS\n"
+		+ "(2) SIDES\n"
+		+ "(3) DESSERTS\n"
+		+ "(4) DRINKS" );
+		try{
+		int i = sc.nextInt();
+			sc.nextLine();
+			switch(i){
+				case 1: this.foodType = "Mains";
+						break;
+				case 2:	this.foodType = "Sides";
+						break;
+				case 3:	this.foodType = "Desserts";
+						break;
+				case 4:	this.foodType = "Drinks";
+						break;
+				default: System.out.println("Invalid choice entered, food item has been placed in Others:: ");
+					this.foodType = "Others";
+				}
+
+		}catch(InputMismatchException e){
+			System.out.println("Invalid choice entered, food item has been placed in Others: ");
+			this.foodType = "Others";
+			}
+
 
 		//Description
 		System.out.println("Description of food:");

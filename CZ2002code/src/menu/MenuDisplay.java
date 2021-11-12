@@ -5,7 +5,7 @@ public class MenuDisplay {
 	public static void menuItemPrintName(Menu menu) {
 		int menuItemArraySize = menu.getMenuItemArray().size();
 		System.out.println("List of Menu Item");
-		String foodtypearray[] = {"Mains", "Sides", "Drinks", "Desserts"};
+		String foodtypearray[] = {"Mains", "Sides", "Drinks", "Desserts", "Others"};
 		
 		for(String s : foodtypearray ){
 			System.out.format("---------------------------------- %-10s ----------------------------------\n", s);

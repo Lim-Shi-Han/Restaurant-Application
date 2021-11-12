@@ -20,7 +20,7 @@ public class Menu implements Serializable{
 	}
 	
 	public void promotionCreate(){
-		try{
+		try{ 
 			Promotion promo = new Promotion();
 			promotionArray.add(promo);
 			System.out.println("Promotion Created\n");
