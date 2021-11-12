@@ -103,16 +103,46 @@ public class SalesReportDisplay {
 
     public void printMenuItemPromotionCount(SalesReport salesReport){
         Scanner sc = new Scanner(System.in);
-        int i = 0;
+        int i = 1;
+        //print menu item/promotion for user to choose to review
         System.out.println("What menu item/promotion do you want to review? (Enter an integer)");
-        Iterator <Map.Entry <String, Map<Calendar, Integer>>> mapIterator = salesReport.getDailyMenuItemPromotionCount().entrySet().iterator();
-        while (mapIterator.hasNext()){ //for every entry in map, check if year and month matches, and if it does 
-            Map.Entry <String, Map<Calendar, Integer>> mapElement = (Map.Entry <String, Map<Calendar, Integer>>)mapIterator.next();
-            System.out.println("(" + (i+1) + ")" + " " + mapElement.getKey());
+        for (Map.Entry<String, LinkedHashMap<Calendar, Integer>> MenuItemPromotionEntry: salesReport.getDailyMenuItemPromotionCount().entrySet()){
+            System.out.println("(" + i + ") " + MenuItemPromotionEntry.getKey());
         }
+
+        //user choses item
         int index = sc.nextInt();
         sc.nextLine();
-        
+
+        //find menu item/promotion in the linked hash map
+        Iterator <Map.Entry <String, LinkedHashMap<Calendar, Integer>>> mapIterator = salesReport.getDailyMenuItemPromotionCount().entrySet().iterator();
+        for(i = 0; i < index-2; i++){
+            mapIterator.next();
+        }
+        Map.Entry <String, LinkedHashMap<Calendar, Integer>> mapElement = mapIterator.next();
+        //get menu item/promotion name
+        String foodName = mapElement.getKey();
+        //retrieve sales count of menu item/promotion from today and the past month
+        Map<Calendar, Integer> dateCountMap = mapElement.getValue();
+        Iterator <Map.Entry <Calendar, Integer>> mapIterator3 = dateCountMap.entrySet().iterator();
+        Calendar date = Calendar.getInstance();
+        Calendar dateOneMonthAgo = Calendar.getInstance();
+        dateOneMonthAgo.add(Calendar.MONTH, -1);//one month ago
+        int todayCount = 0;
+        int monthCount = 0;
+        while(mapIterator3.hasNext()) {
+            Map.Entry <Calendar, Integer> mapElement3 = (Map.Entry <Calendar, Integer>)mapIterator3.next();
+            if(mapElement3.getKey() == date){
+                todayCount += mapElement3.getValue();
+                monthCount += mapElement3.getValue();
+            }
+            else if(mapElement3.getKey().before(dateOneMonthAgo)){
+                monthCount += mapElement3.getValue();
+            }
+        }
+        System.out.println("This is the sales for " + foodName + "(by count):");
+        System.out.println("Today's sales: " + todayCount);
+        System.out.println("Past month's sale: " + monthCount);
     }
 
 }

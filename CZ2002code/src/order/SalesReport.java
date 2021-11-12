@@ -7,7 +7,7 @@ public class SalesReport {
     
     private Map<Calendar, Double> dailySales = new LinkedHashMap<Calendar, Double>(); //tracks daily sales
     private ArrayList<Order> orderHistory = new ArrayList<>(); //contains all the orders
-    private Map<String, Map<Calendar, Integer>> dailyMenuItemPromotionCount = new LinkedHashMap<String, Map<Calendar, Integer>>(); //contains menu items and promotions and stores number of items sold per day
+    private Map<String, LinkedHashMap<Calendar, Integer>> dailyMenuItemPromotionCount = new LinkedHashMap<String, LinkedHashMap<Calendar, Integer>>(); //contains menu items and promotions and stores number of items sold per day
 
     public void updateSalesReport(Order order) {
 
@@ -67,7 +67,7 @@ public class SalesReport {
         return this.orderHistory;
     }
 
-    public Map<String,Map<Calendar,Integer>> getDailyMenuItemPromotionCount() {
+    public Map<String,LinkedHashMap<Calendar,Integer>> getDailyMenuItemPromotionCount() {
         return this.dailyMenuItemPromotionCount;
     }
 }
