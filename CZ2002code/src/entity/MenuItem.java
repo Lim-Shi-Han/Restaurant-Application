@@ -2,7 +2,7 @@ package entity;
 
 import java.io.Serializable;
 
-public class MenuItem implements Serializable{
+public class MenuItem extends AbstractMenu implements Serializable{
 
 	private String foodName;
 	private String foodType;
@@ -15,16 +15,22 @@ public class MenuItem implements Serializable{
 		this.foodType = foodType;
 		this.foodDescription = foodDescription;
 		this.foodPrice = foodPrice;
-
 	}
+
+	/*
+	public MenuItem(String name, String foodType, String description, double price){
+		super(name, description, price);
+		this.foodType = foodType;
+
+	}*/
 	
-	public void setFoodName(String foodName) {
+	public void setName(String foodName) {
 		this.foodName = foodName;
 	}
 	public void setFoodType(String foodType) {
 		this.foodType = foodType;
 	}
-	public void setFoodDescription(String foodDescription) {
+	public void setDescription(String foodDescription) {
 		this.foodDescription = foodDescription;
 	}
 	public void setFoodPrice(double foodPrice) {
