@@ -8,10 +8,6 @@ public class MenuItem implements Serializable{
 	private String foodType;
 	private String foodDescription;
 	private double foodPrice;
-
-	// enum foodType{
-	// 	MAINS, SIDES, DESSERSTS, DRINKS;
-	// }
 	
 	public MenuItem(String foodName, String foodType, String foodDescription, double foodPrice){
 		
