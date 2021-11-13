@@ -1,18 +1,20 @@
-package menu;
-
-import java.io.Serializable;
+package ui;
+import entity.MenuItem;
+import entity.Promotion;
+import database.Menu;
+import manager.DatabaseManager;
+import manager.MenuItemManager;
+import manager.PromotionManager;
+import ui.MenuDisplay;
 import java.util.*;
 
-public class Menu implements Serializable{
-	
-	private ArrayList<MenuItem> menuItemArray = new ArrayList<>();
-
-	private ArrayList<Promotion> promotionArray = new ArrayList<>();
-
-	public void menuItemCreate(){
+public class MenuUI {
+    public void menuItemCreate(){
 		try{
-			MenuItem food = new MenuItem();
-			menuItemArray.add(food);
+            Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
+			MenuItem food = MenuItemManager.createMenuItem();
+			menu.getMenuItemArray().add(food);
+            DatabaseManager.fileWrite(menu, "menu.bin");
 			System.out.println("Menu Item Created\n");
 		}catch(InputMismatchException e){
 			System.out.println("Input for price is invalid (not a double). Menu Item not created...");
@@ -21,8 +23,10 @@ public class Menu implements Serializable{
 	
 	public void promotionCreate(){
 		try{ 
-			Promotion promo = new Promotion();
-			promotionArray.add(promo);
+            Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
+			Promotion promo = PromotionManager.createPromotion();
+			menu.getPromotionArray().add(promo);
+            DatabaseManager.fileWrite(menu, "menu.bin");
 			System.out.println("Promotion Created\n");
 		}catch (InputMismatchException e){
 			if(e.toString().contains("Price")){
@@ -35,7 +39,8 @@ public class Menu implements Serializable{
 	}
 
 	public void menuItemUpdate(){
-		if(menuItemArray.size() == 0) {
+        Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
+		if(menu.getMenuItemArray().size() == 0) {
 			System.out.println("There is no Menu Item!");
 			return;
 		}
@@ -43,12 +48,13 @@ public class Menu implements Serializable{
 		//User to choose which menu item to update
 		try{
 			System.out.println("List of Menu Item: ");
-			MenuDisplay.menuItemPrintName(this);
+			MenuDisplay.menuItemPrintName(menu);
 			System.out.println("Update Menu Item: ");
 			int menuItemChoice = sc.nextInt();
 			sc.nextLine();
-			MenuItem menuItem = menuItemArray.get(menuItemChoice-1);
-			menuItem.updateMenuItem();
+			MenuItem menuItem = menu.getMenuItemArray().get(menuItemChoice-1);
+			MenuItemManager.updateMenuItem(menuItem);
+            DatabaseManager.fileWrite(menu, "menu.bin");
 		}catch (InputMismatchException e){
 			if(e.toString().contains("Choice")){
 				System.out.println("Choice of update option is invalid (not an integer). Menu Item not updated...");
@@ -65,20 +71,22 @@ public class Menu implements Serializable{
 	}
 	
 	public void promotionUpdate() {
-		if(promotionArray.size() == 0) {
+        Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
+		if(menu.getPromotionArray().size() == 0) {
 			System.out.println("There is no Promotion!");
 			return;
 		}
 		Scanner sc = new Scanner(System.in);
 		//User to choose which promotion item to update
 		try{
-		System.out.println("List of Promotion: ");
-		MenuDisplay.promotionPrintName(this);
-		System.out.println("Update Promotion: ");
-		int promotionChoice = sc.nextInt();
-		sc.nextLine();
-		Promotion promo = promotionArray.get(promotionChoice-1);
-		promo.updatePromotion();
+            System.out.println("List of Promotion: ");
+            MenuDisplay.promotionPrintName(menu);
+            System.out.println("Update Promotion: ");
+            int promotionChoice = sc.nextInt();
+            sc.nextLine();
+            Promotion promo = menu.getPromotionArray().get(promotionChoice-1);
+            PromotionManager.updatePromotion(promo);
+            DatabaseManager.fileWrite(menu, "menu.bin");
 		}catch (InputMismatchException e){
 			if(e.toString().contains("Choice")){
 				System.out.println("Choice of update option is invalid (not an integer). Promotion not updated...");
@@ -102,7 +110,8 @@ public class Menu implements Serializable{
 	
 
 	public void menuItemRemove(){
-		if(menuItemArray.size() == 0) {
+        Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
+		if(menu.getMenuItemArray().size() == 0) {
 			System.out.println("There is no Menu Item!");
 			return;
 		}
@@ -113,7 +122,8 @@ public class Menu implements Serializable{
 			System.out.println("Remove Menu Item: ");
 			int menuItemChoice = sc.nextInt();
 			sc.nextLine();
-			menuItemArray.remove(menuItemChoice-1);
+			menu.getMenuItemArray().remove(menuItemChoice-1);
+            DatabaseManager.fileWrite(menu, "menu.bin");
 		}catch (InputMismatchException e){
 			System.out.println("Choice of menu item is invalid (not an integer). Menu Item not removed...");
 		}catch (IndexOutOfBoundsException e){
@@ -122,7 +132,8 @@ public class Menu implements Serializable{
 	}
 	
 	public void promotionRemove(){
-		if(promotionArray.size() == 0) {
+        Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
+		if(menu.getPromotionArray().size() == 0) {
 			System.out.println("There is no Promotion!");
 			return;
 		}
@@ -133,28 +144,12 @@ public class Menu implements Serializable{
 			System.out.println("Remove Promotion: ");
 			int promotionChoice = sc.nextInt();
 			sc.nextLine();
-			promotionArray.remove(promotionChoice-1);
+			menu.getPromotionArray().remove(promotionChoice-1);
+            DatabaseManager.fileWrite(menu, "menu.bin");
 		}catch (InputMismatchException e){
 			System.out.println("Choice of promotion is invalid (not an integer). Promotion not removed...");
 		}catch (IndexOutOfBoundsException e){
 			System.out.println("Selection of promotion is out of range. Promotion not removed...");
 		}
-	}
-	
-	
-	public ArrayList<MenuItem> getMenuItemArray() {
-		return menuItemArray;
-	}
-
-	public void setMenuItemArray(ArrayList<MenuItem> menuItemArray) {
-		this.menuItemArray = menuItemArray;
-	}
-	
-	public ArrayList<Promotion> getPromotionArray() {
-		return promotionArray;
-	}
-
-	public void setPromotionArray(ArrayList<Promotion> promotionArray) {
-		this.promotionArray = promotionArray;
 	}
 }

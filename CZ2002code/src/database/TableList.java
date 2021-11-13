@@ -1,8 +1,14 @@
-package table;
+package database;
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Table_List {
-	private ArrayList<Table> tableList = new ArrayList<>();
-	public Table_List() {
+import entity.Table;
+
+public class TableList implements Serializable{
+
+	private ArrayList<Table> tableList = new ArrayList<Table>();
+
+	public TableList() {
+
 		Table t1 = new Table(1,2);
 		Table t2 = new Table(2,2);
 		Table t3 = new Table(3,4);
@@ -23,9 +29,11 @@ public class Table_List {
 		tableList.add(t8);
 		tableList.add(t9);
 		tableList.add(t10);
+
 	}
-	public static void main(String args[]) {
-		Table_List fk = new Table_List();
-		System.out.println(fk.tableList);
+
+	public ArrayList<Table> getTableList() {
+		return this.tableList;
 	}
+	
 }

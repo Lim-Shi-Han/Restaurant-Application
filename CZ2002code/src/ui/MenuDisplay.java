@@ -1,4 +1,5 @@
-package menu;
+package ui;
+import database.Menu;
 
 public class MenuDisplay {
 	

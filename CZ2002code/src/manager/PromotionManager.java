@@ -1,28 +1,24 @@
-package menu;
-
-import java.io.Serializable;
+package manager;
 import java.util.*;
+import entity.Promotion;
 
-public class Promotion implements Serializable{
+public class PromotionManager {
 
-	private String promotionName;
-	private ArrayList<String> foodArray = new ArrayList<>();
-	private String promotionDescription;
-	private double promotionPrice;
-	
-	public Promotion() {
+    public static Promotion createPromotion() {
 		Scanner sc= new Scanner(System.in);
+        double promotionPrice = 0;
 		
 		//Name
 		System.out.println("Name of promotion:");
-		promotionName = sc.nextLine();
+		String promotionName = sc.nextLine();
 		
 		//Menu Item
-		addFoodItem();
+		ArrayList <String> foodArray = new ArrayList<String>();
+        addFoodItem(foodArray);
 		
 		//Description
 		System.out.println("Description of promotion:");
-		promotionDescription = sc.nextLine();
+		String promotionDescription = sc.nextLine();
 		
 		//Price
 		try{
@@ -33,9 +29,12 @@ public class Promotion implements Serializable{
 		}
 		
 		System.out.println(promotionName + " successfully added!");
+
+        Promotion newPromotion = new Promotion(promotionName, foodArray, promotionDescription, promotionPrice);
+        return newPromotion;
 	}
 	
-	public void updatePromotion() {
+	public static void updatePromotion(Promotion promotion) {
 		Scanner sc = new Scanner(System.in);	
 		
 		//User chooses which aspect of the promotion to update
@@ -49,7 +48,7 @@ public class Promotion implements Serializable{
 				
 					case(1): //update name
 						System.out.println("Update name:");
-						promotionName = sc.nextLine();
+						promotion.setPromotionName(sc.nextLine());
 						System.out.println();
 						break;
 					case(2): //update menu item
@@ -57,10 +56,10 @@ public class Promotion implements Serializable{
 							System.out.println("1. Add or 2. Delete: ");
 							int add = sc.nextInt();
 							if(add==1) { //add
-								addFoodItem();
+								addFoodItem(promotion.getFoodArray());
 							}
 							if(add==2) { //remove
-								removeFoodItem();
+								removeFoodItem(promotion.getFoodArray());
 							}
 							System.out.println();
 							break;
@@ -72,14 +71,14 @@ public class Promotion implements Serializable{
 						
 					case(3): //update description
 						System.out.println("Update description:");
-						promotionDescription = sc.nextLine();
+						promotion.setPromotionDescription(sc.nextLine());
 						System.out.println();
 						break;
 						
 					case(4): //update price
 						try{
 							System.out.println("Update price:");
-							promotionPrice = sc.nextDouble();
+							promotion.setPromotionPrice(sc.nextDouble());
 							System.out.println();
 							break;
 						}catch (InputMismatchException e){
@@ -87,6 +86,7 @@ public class Promotion implements Serializable{
 						}
 						
 					case(5): //user quitting
+						System.out.println("Stopping update...");
 						break;
 					
 					default: //indexOutOfBoundsException
@@ -99,7 +99,7 @@ public class Promotion implements Serializable{
 		}while (updateChoice!=5);	
 	}
 	
-	public void addFoodItem(){ //allows users to add food items
+	public static void addFoodItem(ArrayList<String> foodArray){ //allows users to add food items
 		Scanner sc = new Scanner(System.in);
 		try{
 			System.out.println("How many food items do you want to add in the promotion:");
@@ -114,7 +114,7 @@ public class Promotion implements Serializable{
 		}
 	}
 	
-	public void removeFoodItem() { //displays menuItems in promotion and let's user remove menuItem
+	public static void removeFoodItem(ArrayList<String> foodArray) { //displays menuItems in promotion and let's user remove menuItem
 		Scanner sc = new Scanner(System.in);
 		int menuItemChoice;
 		while(true) { //allows user to keep removing items
@@ -138,36 +138,5 @@ public class Promotion implements Serializable{
 		}
 	}
 
-	public String getPromotionName() {
-		return this.promotionName;
-	}
-
-	public ArrayList<String> getFoodArray() {
-		return this.foodArray;
-	}	
-
-	public double getPromotionPrice() {
-		return this.promotionPrice;
-	}
-
-	public String getPromotionDescription() {
-		return this.promotionDescription;
-	}
-
-	public void setPromotionName(String promotionName) {
-		this.promotionName = promotionName;
-	}
-
-	public void setFoodArray(ArrayList<String> foodArray) {
-		this.foodArray = foodArray;
-	}
-
-	public void setPromotionPrice(double promotionPrice) {
-		this.promotionPrice = promotionPrice;
-	}
-
-	public void setPromotionDescription(String promotionDescription) {
-		this.promotionDescription = promotionDescription;
-	}
-	
+    
 }

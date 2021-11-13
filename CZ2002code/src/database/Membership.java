@@ -1,12 +1,25 @@
-package customer;
+package database;
 
 import java.util.*;
+import java.io.Serializable;
 
-public class Membership {
+public class Membership implements Serializable{
+
+	public ArrayList<Integer> phoneNum = new ArrayList<Integer>();
+
+	public ArrayList<Integer> getPhoneNum() {
+		return this.phoneNum;
+	}
+}
+
+
+	/*
 	private String name;
 	private int phoneNum;
 	private int membershipId;
 	public static final double discount = 10;
+	
+
 	
 	public Membership()
 	{
@@ -103,5 +116,6 @@ public class Membership {
 	public void setMembershipId(int membershipId) {
 		this.membershipId = membershipId;
 	}
+	*/
 	
-}
+

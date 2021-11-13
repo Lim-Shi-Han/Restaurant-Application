@@ -2,16 +2,17 @@ package customer;
 import java.util.*;
 
 public class MembershipList {
-    private ArrayList<Membership> membershipArray = new ArrayList<>();
+    private ArrayList<Integer> membershipArray = new ArrayList<>();
 
-    public Bool checkMember(int phoneNum){
+    public boolean checkMember(int phoneNum){
         for(int i = 0; i < membershipArray.size(); i++){
-            if(membershipArray[i] == phoneNum){
+            if(membershipArray.get(i) == phoneNum){
                 return true;
             }
         }
         return false;
     }
+}
 
 /*package customer;
 import java.util.*;

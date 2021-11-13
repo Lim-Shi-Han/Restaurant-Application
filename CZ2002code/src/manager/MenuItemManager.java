@@ -1,25 +1,16 @@
-package menu;
-
-import java.io.Serializable;
+package manager;
 import java.util.*;
+import entity.MenuItem;
 
-public class MenuItem implements Serializable{
+public class MenuItemManager {
 
-	private String foodName;
-	private String foodType;
-	private String foodDescription;
-	private double foodPrice;
-
-	enum foodType{
-		MAINS, SIDES, DESSERSTS, DRINKS;
-	}
-	
-	public MenuItem() {
+    public static MenuItem createMenuItem() {
 		Scanner sc= new Scanner(System.in);
+        String foodType;
 
 		//Name
 		System.out.println("Name of food:");
-		this.foodName = sc.nextLine();
+		String foodName = sc.nextLine();
 
 		//Type
 		System.out.println("Enter number from 1-4 for Type of food: \n"
@@ -31,36 +22,40 @@ public class MenuItem implements Serializable{
 		int i = sc.nextInt();
 			sc.nextLine();
 			switch(i){
-				case 1: this.foodType = "Mains";
+				case 1: foodType = "Mains";
 						break;
-				case 2:	this.foodType = "Sides";
+				case 2:	foodType = "Sides";
 						break;
-				case 3:	this.foodType = "Desserts";
+				case 3:	foodType = "Desserts";
 						break;
-				case 4:	this.foodType = "Drinks";
+				case 4:	foodType = "Drinks";
 						break;
 				default: System.out.println("Invalid choice entered, food item has been placed in Others:: ");
-					this.foodType = "Others";
+					foodType = "Others";
 				}
 
 		}catch(InputMismatchException e){
 			System.out.println("Invalid choice entered, food item has been placed in Others: ");
-			this.foodType = "Others";
-			}
+			foodType = "Others";
+		}
 
 
 		//Description
 		System.out.println("Description of food:");
-		this.foodDescription = sc.nextLine();
+		String foodDescription = sc.nextLine();
 
 		//Price
 		System.out.println("Price of food:");
-		this.foodPrice = sc.nextDouble();
+		Double foodPrice = sc.nextDouble();
 
 		System.out.println(foodName + " successfully added!");
+
+        MenuItem newMenuItem = new MenuItem(foodName, foodType, foodDescription, foodPrice);
+
+        return newMenuItem;
 	}
 	
-	public void updateMenuItem() {
+	public static void updateMenuItem(MenuItem menuItem) {
 		Scanner sc = new Scanner(System.in);	
 		
 		//User chooses which aspect of the promotion to update
@@ -74,26 +69,26 @@ public class MenuItem implements Serializable{
 				
 					case(1): //update name
 						System.out.println("Update name:");
-						foodName = sc.nextLine();
+						menuItem.setFoodName(sc.nextLine());
 						System.out.println();
 						break;
 						
 					case(2): //update type
 						System.out.println("Update type:");
-						foodType = sc.nextLine();
+						menuItem.setFoodType(sc.nextLine());
 						System.out.println();
 						break;
 						
 					case(3): //update description
 						System.out.println("Update description:");
-						foodDescription = sc.nextLine();
+						menuItem.setFoodDescription(sc.nextLine());
 						System.out.println();
 						break;
 						
 					case(4): //update price
 						try{
 							System.out.println("Update price:");
-							foodPrice = sc.nextDouble();
+							menuItem.setFoodPrice(sc.nextDouble());
 							System.out.println();
 							break;
 						}catch (InputMismatchException e){
@@ -101,6 +96,7 @@ public class MenuItem implements Serializable{
 						}
 						
 					case(5): //user quitting
+						System.out.println("Stopping update...");
 						break;
 					
 					default: //indexOutOfBoundsException
@@ -112,18 +108,5 @@ public class MenuItem implements Serializable{
 			
 		}while (updateChoice!=5);	
 	}
-	
-	public String getFoodName() {
-		return foodName;
-	}
-	public String getFoodType() {
-		return foodType;
-	}
-	public String getFoodDescription() {
-		return foodDescription;
-	}
-	public double getFoodPrice() {
-		return foodPrice;
-	}
-	
+
 }

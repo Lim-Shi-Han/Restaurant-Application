@@ -1,23 +1,34 @@
-package order;
-import menu.*;
+package ui;
 import java.util.*;
+import entity.MenuItem;
+import entity.Promotion;
+import manager.OrderManager;
+import manager.DatabaseManager;
+import database.Menu;
+import database.TableList;
+import entity.Table;
 
-public class Order {
-    private ArrayList<MenuItem> menuItemArray = new ArrayList<>();
-	private ArrayList<Promotion> promotionArray = new ArrayList<>();
-    String customerName;
-    String staffName;
-    int tableNumber;
-    double totalPrice;
-    Calendar date;
+public class OrderUI {
 
-    Order(Menu menu){
+    public static void createOrder(){
         
+        Menu menu = (Menu) DatabaseManager.fileRead("menu.bin"); 
+        TableList tableList = (TableList) DatabaseManager.fileRead("table.bin");      
         Scanner sc = new Scanner(System.in);
         int choice = 0;
         int selection = 0;
         MenuItem menuItem;
         Promotion promotion;
+        ArrayList<MenuItem> menuItemArray = new ArrayList<MenuItem>();
+        ArrayList<Promotion> promotionArray = new ArrayList<Promotion>();
+
+        System.out.println("Input table number:");
+        int tableNumber = sc.nextInt();
+        sc.nextLine();
+        int customerPhoneNumber = tableList.getTableList().get(tableNumber).getPhoneNumber();
+        boolean isMember = tableList.getTableList().get(tableNumber).isIsMember();
+
+        //havent't add price etc.
         
         do{
             try{
@@ -56,7 +67,7 @@ public class Order {
                         System.out.println(promotion.getPromotionName() + " added to your order!");
                         break;
                     case 4: //Remove menu item
-                        orderMenuItemPrintNamePrice();
+                        OrderManager.orderMenuItemPrintNamePrice(menuItemArray);
                         if(menuItemArray.size() == 0)break; //If no menu item break here
                         System.out.println("Choose menu item to remove from your order:");
                         selection = sc.nextInt();
@@ -65,7 +76,7 @@ public class Order {
                         System.out.println(menuItem.getFoodName() + " removed!");
                         break;
                     case 5: //Remove promotion
-                        orderPromotionPrintNamePrice();
+                        OrderManager.orderPromotionPrintNamePrice(promotionArray);
                         if(menuItemArray.size() == 0)break; //If no promotion break here
                         System.out.println("Choose promotion to remove from your order:");
                         selection = sc.nextInt();
@@ -74,12 +85,12 @@ public class Order {
                         System.out.println(promotion.getPromotionName() + " removed!");
                         break;
                     case 6: //Print order
-                        orderMenuItemPrintNamePrice();
+                        OrderManager.orderMenuItemPrintNamePrice(menuItemArray);
                         System.out.println();
-                        orderPromotionPrintNamePrice();
+                        OrderManager.orderPromotionPrintNamePrice(promotionArray);
                         break;
                     case 7: //Insert in salesReport database
-                        //Maybe orderArray.add(this) or smth?
+                        //Maywwwwwbe orderArray.add(this) or smth?
                         break;
                     case 8:
                         break;
@@ -91,45 +102,8 @@ public class Order {
 				if(sc.hasNextLine())sc.nextLine();
 			}
         }while (choice != 8);
-    }
 
-    public void orderMenuItemPrintNamePrice(){
-        if(menuItemArray.size() == 0){
-            System.out.println("You have no menu item in your order!");
-            return;
-        }
-        int menuItemArraySize = menuItemArray.size();
-		System.out.println("List of menu item in your order");
-		for(int i = 0; i < menuItemArraySize; i++) {
-			System.out.format("%-10d%-50s%16.2f\n",(i+1), menuItemArray.get(i).getFoodName(), menuItemArray.get(i).getFoodPrice());
-		}
-    }
 
-    public void orderPromotionPrintNamePrice(){
-        if(promotionArray.size() == 0){
-            System.out.println("You have no promotion in your order!");
-            return;
-        }
-        int promotionArraySize = promotionArray.size();
-		System.out.println("List of promotion in your order");
-		for(int i = 0; i < promotionArraySize; i++) {
-			System.out.format("%-10d%-50s%16.2f\n",(i+1), promotionArray.get(i).getPromotionName(), promotionArray.get(i).getPromotionPrice());
-		}
-    }
-    
-    public Calendar getDate() {
-        return this.date;
-    }
 
-    public double getTotalPrice() {
-        return this.totalPrice;
-    }
-
-    public ArrayList<MenuItem> getMenuItemArray() {
-        return this.menuItemArray;
-    }
-
-    public ArrayList<Promotion> getPromotionArray() {
-        return this.promotionArray;
     }
 }
