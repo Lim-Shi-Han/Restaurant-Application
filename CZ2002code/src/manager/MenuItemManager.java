@@ -20,7 +20,7 @@ public class MenuItemManager {
 		+ "(4) DRINKS" );
 		try{
 		int i = sc.nextInt();
-			sc.nextLine();
+			//sc.nextLine();
 			switch(i){
 				case 1: foodType = "Mains";
 						break;
@@ -30,14 +30,15 @@ public class MenuItemManager {
 						break;
 				case 4:	foodType = "Drinks";
 						break;
-				default: System.out.println("Invalid choice entered, food item has been placed in Others:: ");
+				default: System.out.println("Invalid choice entered, food item has been placed in Others! ");
 					foodType = "Others";
 				}
 
 		}catch(InputMismatchException e){
-			System.out.println("Invalid choice entered, food item has been placed in Others: ");
+			System.out.println("Invalid choice entered, food item has been placed in Others! ");
 			foodType = "Others";
 		}
+		sc.nextLine();
 
 
 		//Description
