@@ -1,8 +1,9 @@
 package entity;
 import java.util.*;
+import java.io.Serializable;
 import java.time.*;
 
-public class Order {
+public class Order implements Serializable{
     private ArrayList<MenuItem> menuItemArray = new ArrayList<>();
 	private ArrayList<Promotion> promotionArray = new ArrayList<>();
     int customerPhoneNumber;

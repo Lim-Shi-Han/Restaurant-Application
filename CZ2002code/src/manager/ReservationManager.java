@@ -28,6 +28,17 @@ public class ReservationManager {
         System.out.println("You have a table on " + reservationDate + " at " + reservationTime);
     }
 
+    public static void reservationCheck(String reservationID){
+        ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");
+        for(int i = 0; i < reservationList.getReservationArray().size(); i++){
+            if(reservationList.getReservationArray().get(i).getReservationID().contains(reservationID)){
+                    //find table number from reservationID
+                    System.out.println("The reservation has been found!");
+            }
+        }
+        System.out.println("The reservation has not been found!");
+    }
+
     public static Reservation reservationRemove(String reservationID){
         
         ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");

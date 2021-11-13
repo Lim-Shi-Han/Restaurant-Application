@@ -5,11 +5,10 @@ import database.Menu;
 import manager.DatabaseManager;
 import manager.MenuItemManager;
 import manager.PromotionManager;
-import ui.MenuDisplay;
 import java.util.*;
 
 public class MenuUI {
-    public void menuItemCreate(){
+    public static void menuItemCreate(){
 		try{
             Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 			MenuItem food = MenuItemManager.createMenuItem();
@@ -21,7 +20,7 @@ public class MenuUI {
 		}
 	}
 	
-	public void promotionCreate(){
+	public static void promotionCreate(){
 		try{ 
             Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 			Promotion promo = PromotionManager.createPromotion();
@@ -38,7 +37,7 @@ public class MenuUI {
 		}
 	}
 
-	public void menuItemUpdate(){
+	public static void menuItemUpdate(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getMenuItemArray().size() == 0) {
 			System.out.println("There is no Menu Item!");
@@ -48,7 +47,7 @@ public class MenuUI {
 		//User to choose which menu item to update
 		try{
 			System.out.println("List of Menu Item: ");
-			MenuDisplay.menuItemPrintName(menu);
+			MenuDisplay.menuItemPrintName();
 			System.out.println("Update Menu Item: ");
 			int menuItemChoice = sc.nextInt();
 			sc.nextLine();
@@ -70,7 +69,7 @@ public class MenuUI {
 		}
 	}
 	
-	public void promotionUpdate() {
+	public static void promotionUpdate() {
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getPromotionArray().size() == 0) {
 			System.out.println("There is no Promotion!");
@@ -80,7 +79,7 @@ public class MenuUI {
 		//User to choose which promotion item to update
 		try{
             System.out.println("List of Promotion: ");
-            MenuDisplay.promotionPrintName(menu);
+            MenuDisplay.promotionPrintName();
             System.out.println("Update Promotion: ");
             int promotionChoice = sc.nextInt();
             sc.nextLine();
@@ -109,7 +108,7 @@ public class MenuUI {
 	}
 	
 
-	public void menuItemRemove(){
+	public static void menuItemRemove(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getMenuItemArray().size() == 0) {
 			System.out.println("There is no Menu Item!");
@@ -118,7 +117,7 @@ public class MenuUI {
 		Scanner sc = new Scanner(System.in);
 		//User to choose which menu item to remove
 		try{
-			MenuDisplay.menuItemPrintName(this);
+			MenuDisplay.menuItemPrintName();
 			System.out.println("Remove Menu Item: ");
 			int menuItemChoice = sc.nextInt();
 			sc.nextLine();
@@ -131,7 +130,7 @@ public class MenuUI {
 		}
 	}
 	
-	public void promotionRemove(){
+	public static void promotionRemove(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getPromotionArray().size() == 0) {
 			System.out.println("There is no Promotion!");
@@ -140,7 +139,7 @@ public class MenuUI {
 		Scanner sc = new Scanner(System.in);
 		//User to choose which promotion to remove
 		try{
-			MenuDisplay.promotionPrintName(this);
+			MenuDisplay.promotionPrintName();
 			System.out.println("Remove Promotion: ");
 			int promotionChoice = sc.nextInt();
 			sc.nextLine();
@@ -151,5 +150,5 @@ public class MenuUI {
 		}catch (IndexOutOfBoundsException e){
 			System.out.println("Selection of promotion is out of range. Promotion not removed...");
 		}
-	}
+	}	
 }

@@ -1,9 +1,11 @@
 package ui;
 import database.Menu;
+import manager.DatabaseManager;
 
 public class MenuDisplay {
 	
-	public static void menuItemPrintName(Menu menu) {
+	public static void menuItemPrintName() {
+		Menu menu = (Menu)DatabaseManager.fileRead("menu.bin");
 		int menuItemArraySize = menu.getMenuItemArray().size();
 		System.out.println("List of Menu Item");
 		String foodtypearray[] = {"Mains", "Sides", "Drinks", "Desserts", "Others"};
@@ -23,7 +25,8 @@ public class MenuDisplay {
 	}
 
 	
-	public static void promotionPrintName(Menu menu) {
+	public static void promotionPrintName() {
+		Menu menu = (Menu)DatabaseManager.fileRead("menu.bin");
 		int promotionArraySize = menu.getPromotionArray().size();
 		System.out.println("List of Promotion");
 		
@@ -47,9 +50,9 @@ public class MenuDisplay {
 		}
 	}
 	
-	public static void menuPrintName(Menu menu) {
-		menuItemPrintName(menu);
+	public static void menuPrintName() {
+		menuItemPrintName();
 		System.out.println();
-		promotionPrintName(menu);
+		promotionPrintName();
 	}
 }

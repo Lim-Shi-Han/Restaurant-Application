@@ -2,7 +2,6 @@ package ui;
 import java.util.*;
 import java.time.*;
 import manager.ReservationManager;
-import database.Membership;
 
 public class ReservationUI{
 
@@ -58,6 +57,21 @@ public class ReservationUI{
 
         ReservationManager.reservationCreate(numberOfPeople, reservationDate, reservationTime, customerName, customerPhoneNumber);
     }
+
+    public static void checkReservation(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input reservation date in YYYY-MM-DD format:");
+        String date = sc.nextLine();
+        System.out.println("Input reservation timing in HH:MM format (09:30 - 21:30):");
+        String time = sc.nextLine();
+        System.out.println("Input customer phone number:");
+        int customerPhoneNumber = sc.nextInt();
+        sc.nextLine();
+        String customerPhoneNumberString = String.valueOf(customerPhoneNumber);
+        String reservationID = date + time + customerPhoneNumberString;
+        ReservationManager.reservationCheck(reservationID);
+    }
+
 
     public static void removeReservation(){
         Scanner sc = new Scanner(System.in);
