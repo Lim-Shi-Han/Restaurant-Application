@@ -3,7 +3,7 @@ package entity;
 import java.io.Serializable;
 import java.util.*;
 
-public class Promotion implements Serializable{
+public class Promotion extends AbstractMenu implements Serializable{
 
 	private String promotionName;
 	private ArrayList<String> foodArray = new ArrayList<>();
@@ -16,6 +16,12 @@ public class Promotion implements Serializable{
 		this.promotionDescription = promotionDescription;
 		this.promotionPrice = promotionPrice;
 	}
+
+	/*
+	public Promotion(String name, ArrayList<String> foodArray, String description, double price){
+		super(name, description, price);
+		this.foodArray = foodArray;
+	}*/
 	
 	public String getPromotionName() {
 		return this.promotionName;
@@ -33,7 +39,7 @@ public class Promotion implements Serializable{
 		return this.promotionDescription;
 	}
 
-	public void setPromotionName(String promotionName) {
+	public void setName(String promotionName) {
 		this.promotionName = promotionName;
 	}
 

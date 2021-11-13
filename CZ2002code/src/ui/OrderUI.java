@@ -1,8 +1,10 @@
 package ui;
 import java.util.*;
 import java.time.*;
+
 import entity.MenuItem;
 import entity.Promotion;
+import entity.SingaporeConstants;
 import entity.Order;
 import manager.OrderManager;
 import manager.DatabaseManager;
@@ -11,7 +13,7 @@ import database.Menu;
 import database.TableList;
 import database.StaffList;
 
-public class OrderUI {
+public class OrderUI implements SingaporeConstants{
     
     public static void createOrder(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin"); 
@@ -49,7 +51,7 @@ public class OrderUI {
                         staffIDCheck = 1;
                         break;
                     }
-                }
+                }  
             }
             if(staffIDCheck == 0){
                 System.out.println("We cannot get a waiter of matching staff ID! Order terminating...");
@@ -145,19 +147,19 @@ public class OrderUI {
                             System.out.println();
                             OrderManager.orderPromotionPrintNamePrice(promotionArray);
                             System.out.println("**********************************");
-                            System.out.println("Subtotal price: $" + totalPrice);
-                            System.out.println("GST: $" + (totalPrice*0.07));
-                            System.out.println("Service charge: $" + (totalPrice*0.1));
+                            System.out.println("Subtotal price:" + Currency + totalPrice);
+                            System.out.println("GST:" + Currency + (totalPrice*GST));
+                            System.out.println("Service charge:" + Currency + (totalPrice*service_charge));
                             //members get 10% off total bill
                             if(isMember){
-                                System.out.println("Discount: $" + (totalPrice*0.1));
+                                System.out.println("Discount:" + Currency + (totalPrice*restaurant_member_discount));
                             }
                             System.out.println("==================================");
                             if(isMember){
-                                System.out.println("TOTAL DUE: " + (totalPrice*1.07));
+                                System.out.println("TOTAL DUE: " + (totalPrice*(1 + service_charge + GST - restaurant_member_discount)) );
                             }
                             else{
-                                System.out.println("TOTAL DUE: " + (totalPrice*1.17));
+                                System.out.println("TOTAL DUE: " + (totalPrice*(1 + service_charge + GST)) );
                             }
                             System.out.println("==================================");
                             System.out.println("See you again soon!");
