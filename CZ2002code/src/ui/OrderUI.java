@@ -136,6 +136,7 @@ public class OrderUI {
                             }
                             Order order = new Order(menuItemArray, promotionArray, customerPhoneNumber, staffID, tableNumber, totalPrice, isMember);
                             SalesReportManager.updateSalesReport(order);
+                            
                             System.out.println("          OOP Restaurant          ");
                             System.out.println("**********************************");
                             System.out.println("Date: " + LocalDate.now() + ", Time: " + LocalTime.now());
