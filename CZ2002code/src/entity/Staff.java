@@ -7,6 +7,13 @@ public class Staff implements Serializable{
 	private String staffGender;
 	private int staffID;
 	private String jobTitle;
+
+	public Staff(String staffName, String staffGender, int staffID, String jobTitle){
+		this.staffName = staffName;
+		this.staffGender = staffGender;
+		this.staffID = staffID;
+		this.jobTitle = jobTitle;
+	}
 	
 
 	public String getStaffName() {

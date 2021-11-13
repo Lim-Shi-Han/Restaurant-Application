@@ -5,9 +5,11 @@ import java.io.Serializable;
 import entity.Order;
 
 public class SalesReport implements Serializable{
-    
-    private Map<LocalDate, Double> dailySales = new LinkedHashMap<LocalDate, Double>(); //tracks daily sales
-    private Map<LocalDate, ArrayList<Order>> orderHistory = new LinkedHashMap<LocalDate, ArrayList<Order>>(); //contains all the orders
+
+    private static final long serialVersionUID = 1L;
+
+    private Map<LocalDate, Double> dailySales = new LinkedHashMap<>(); //tracks daily sales
+    private Map<LocalDate, ArrayList<Order>> orderHistory = new LinkedHashMap<>(); //contains all the orders
 
     public Map<LocalDate,Double> getDailySales() {
         return this.dailySales;

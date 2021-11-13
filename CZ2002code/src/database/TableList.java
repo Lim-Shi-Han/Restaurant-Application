@@ -5,7 +5,9 @@ import entity.Table;
 
 public class TableList implements Serializable{
 
-	private ArrayList<Table> tableList = new ArrayList<Table>();
+	private static final long serialVersionUID = 1L;
+
+	private ArrayList<Table> tableList = new ArrayList<>();
 
 	public TableList() {
 
@@ -35,5 +37,6 @@ public class TableList implements Serializable{
 	public ArrayList<Table> getTableList() {
 		return this.tableList;
 	}
+	
 	
 }

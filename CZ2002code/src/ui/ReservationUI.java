@@ -41,7 +41,7 @@ public class ReservationUI{
 			return;
 		}
 		//Check that reservation is not made for a past date
-		if(reservationTime.isBefore(currentTime)) {
+		if(reservationDate.isBefore(today) && reservationTime.isBefore(currentTime)) {
 			System.out.println("You cannot pick a timing before now!");
 			return;
 		}
@@ -109,7 +109,11 @@ public class ReservationUI{
         ReservationManager.reservationArrive(reservationID);
     }
 
-    public static void leaveTable(int tableNumber){
+    public static void leaveTable(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input table number:");
+        int tableNumber = sc.nextInt();
+        sc.nextLine();
         ReservationManager.tableLeave(tableNumber);
     }
 

@@ -6,7 +6,9 @@ import entity.MenuItem;
 import entity.Promotion;
 
 public class Menu implements Serializable{
-	
+
+	private static final long serialVersionUID = 1L;
+
 	private ArrayList<MenuItem> menuItemArray = new ArrayList<>();
 
 	private ArrayList<Promotion> promotionArray = new ArrayList<>();	

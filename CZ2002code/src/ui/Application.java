@@ -27,8 +27,10 @@ public class Application {
                         + "(10) Check Reservation Booking\n"
                         + "(11) Remove Reservation Booking\n"
                         + "(12) Check Expired Reservation Booking \n"
-                        + "(13) View Sales Report\n"
-						+ "(14) Quit\n"
+						+ "(13) Walk in \n"
+						+ "(14) Leave table\n"
+                        + "(15) View Sales Report\n"
+						+ "(16) Quit\n"
 						+ "Enter the number of your choice: ");
     
 				choice = sc.nextInt();
@@ -82,12 +84,19 @@ public class Application {
                     case 12:
                         ReservationUI.checkExpired();
                         break;
-                    
+					
 					case 13:
+						ReservationUI.walkIn();
+						break;
+					
+					case 14:
+						ReservationUI.leaveTable();
+                    
+					case 15:
 						SalesReportDisplay.printSales();
 						break;                    
             
-					case 14: 
+					case 16: 
 						System.out.println("Quitting...");
 						break;
         
@@ -102,7 +111,7 @@ public class Application {
 			
  			System.out.println();
 			
- 		}while(choice != 14);
+ 		}while(choice != 16);
 
     }
     

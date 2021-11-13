@@ -78,7 +78,7 @@ public class ReservationManager {
         }
 
         //if matching reservationID found in both reservationList and table
-        System.out.println(fullReservationID + "has been removed!");
+        System.out.println(fullReservationID + " has been removed!");
         return removedReservation;
     }
 
@@ -103,7 +103,7 @@ public class ReservationManager {
         tableList.getTableList().get(tableNumber).setIsOccupied(true);
         tableList.getTableList().get(tableNumber).setPhoneNumber(removedReservation.getCustomerPhoneNumber());
         DatabaseManager.fileWrite(tableList, "table.bin");
-        System.out.println("Guest reserved at table " + tableNumber + "has arrived!");
+        System.out.println("Guest reserved at table " + tableNumber + " has arrived!");
     }
 
     public static void tableLeave(int tableNumber){

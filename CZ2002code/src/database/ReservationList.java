@@ -5,7 +5,9 @@ import java.io.Serializable;
 
 public class ReservationList implements Serializable{
     
-    private ArrayList<Reservation> reservationArray = new ArrayList<Reservation>();
+    private static final long serialVersionUID = 1L;
+
+    private ArrayList<Reservation> reservationArray = new ArrayList<>();
 
     public ArrayList<Reservation> getReservationArray() {
         return this.reservationArray;
