@@ -2,7 +2,6 @@ package database;
 
 import java.util.*;
 import java.io.Serializable;
-import manager.*;
 
 public class Membership implements Serializable{
 
