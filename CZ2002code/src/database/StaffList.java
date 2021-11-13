@@ -2,7 +2,6 @@ package database;
 import entity.Staff;
 import java.io.Serializable;
 import java.util.*;
-import manager.*;
 
 public class StaffList implements Serializable{
 
@@ -32,10 +31,6 @@ public class StaffList implements Serializable{
         this.staffArray = staffArray;
     }
 
-    public static void main(String[] args){
-        StaffList sl = new StaffList();
-        
-    }
 }
 
 
