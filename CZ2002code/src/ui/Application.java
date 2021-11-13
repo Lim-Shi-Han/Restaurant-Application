@@ -1,8 +1,6 @@
 package ui;
 import java.util.*;
 
-import database.SalesReport;
-
 public class Application {
     public static void main(String[] args){
         System.out.println();
@@ -91,6 +89,7 @@ public class Application {
 					
 					case 14:
 						ReservationUI.leaveTable();
+						break;
                     
 					case 15:
 						SalesReportDisplay.printSales();

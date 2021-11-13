@@ -37,7 +37,7 @@ public class ReservationUI{
         LocalTime currentTime = LocalTime.now();
         //Check that reservation date is made within opening hours
 		if(reservationTime.isBefore(LocalTime.parse("09:30")) || reservationTime.isAfter(LocalTime.parse("21:30"))) {
-			System.out.println("We only accept bookings from 9.30am to 9.30pm!");
+			System.out.println("We only accept bookings from 09:30 to 21:30!");
 			return;
 		}
 		//Check that reservation is not made for a past date
@@ -119,6 +119,13 @@ public class ReservationUI{
 
     public static void walkIn(){
         Scanner sc = new Scanner(System.in);
+        LocalTime now = LocalTime.now();
+        LocalTime early = LocalTime.parse("09:30");
+        LocalTime late = LocalTime.parse("21:30");
+        if(now.isBefore(early) || now.isAfter(late)) {
+			System.out.println("We only accept bookings from 09:30 to 21:30!");
+			return;
+		}
         System.out.println("How many people:");
         int numberOfPeople = sc.nextInt();
 		sc.nextLine();

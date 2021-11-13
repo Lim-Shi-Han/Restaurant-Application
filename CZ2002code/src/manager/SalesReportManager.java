@@ -24,10 +24,17 @@ public class SalesReportManager {
         }
 
         //update orderHistory
+        
         Map<LocalDate, ArrayList<Order>> orderHistory = salesReport.getOrderHistory();
-        ArrayList<Order> orderArray = orderHistory.get(order.getDate());
-        orderArray.add(order);
-        orderHistory.put(order.getDate(), orderArray);
+        try{
+            ArrayList<Order> orderArray = orderHistory.get(order.getDate());
+            orderArray.add(order);
+            orderHistory.put(order.getDate(), orderArray);
+        }catch (NullPointerException e){
+            ArrayList<Order> orderArray = new ArrayList<>();
+            orderArray.add(order);
+            orderHistory.put(order.getDate(), orderArray);
+        }
 
         DatabaseManager.fileWrite(salesReport, "salesReport.bin");
     }
