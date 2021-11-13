@@ -10,9 +10,10 @@ public class ReservationManager {
     
     public static void reservationCreate(int numberOfPeople, LocalDate reservationDate, LocalTime reservationTime, String customerName, int customerPhoneNumber){
         
-        boolean isMember = checkMembership(customerPhoneNumber);       
+        boolean isMember = checkMembership(customerPhoneNumber);   
 
         int tableNumber = checkAvailability(numberOfPeople, reservationDate, reservationTime);
+
         if(tableNumber == -1){
             System.out.println("No tables are available for your group at your specified time!");
             return;
@@ -34,6 +35,7 @@ public class ReservationManager {
             if(reservationList.getReservationArray().get(i).getReservationID().contains(reservationID)){
                     //find table number from reservationID
                     System.out.println("The reservation has been found!");
+                    return;
             }
         }
         System.out.println("The reservation has not been found!");
@@ -108,6 +110,12 @@ public class ReservationManager {
 
     public static void tableLeave(int tableNumber){
         TableList tableList = (TableList) DatabaseManager.fileRead("table.bin");
+        if(tableList.getTableList().get(tableNumber).getIsOccupied()){
+            System.out.println("Setting table " + tableNumber + " to not occupied...");
+        }
+        else{
+            System.out.println("Table " + tableNumber + "is not occupied!");
+        }
         tableList.getTableList().get(tableNumber).setIsOccupied(false);
         DatabaseManager.fileWrite(tableList, "table.bin");
     }
@@ -118,21 +126,29 @@ public class ReservationManager {
 
         int tableNumber = -1;
 
+        LocalDate now = LocalDate.now();
+
         for(int i = 0; i < tableList.getTableList().size(); i++){
             //find tables with large enough capacity
             if(numberOfPeople <= tableList.getTableList().get(i).getSeating()){
+                int available = 1;
                 ArrayList<Reservation> reservationArray = tableList.getTableList().get(i).getReservationArray();
                 //check all the reservations of table
                 for(int j = 0; j < reservationArray.size(); j++){
                     //check if any date clashes
-                    if(reservationArray.get(i).getReservationDate().equals(LocalDate.now())){
+                    if(reservationArray.get(j).getReservationDate().equals(now)){
                         //check if new reservation is within 90 mins of another reservation and if seat is occupied
-                        if(LocalTime.now().isAfter(reservationArray.get(i).getReservationTime().minusMinutes(90)) && LocalTime.now().isBefore(reservationArray.get(i).getReservationTime().plusMinutes(90)) && !tableList.getTableList().get(i).getIsOccupied()){
+                        if(LocalTime.now().isAfter(reservationArray.get(j).getReservationTime().minusMinutes(90)) && LocalTime.now().isBefore(reservationArray.get(j).getReservationTime().plusMinutes(90)) && !tableList.getTableList().get(j).getIsOccupied()){
                             //if above conditions are met, that means current reservation clashes with another reservation
-                            tableNumber = i;
+                            available = 0;
                             break;
                         }
                     }
+                }
+                //if there are no clashes after cycling through all the reservations of a table, return tableNumber
+                if(available == 1){
+                    tableNumber = i;
+                    break;
                 }
             }
         }
@@ -197,9 +213,9 @@ public class ReservationManager {
                 //check all the reservations of table
                 for(int j = 0; j < reservationArray.size(); j++){
                     //check if any date clashes
-                    if(reservationArray.get(i).getReservationDate().equals(reservationDate)){
+                    if(reservationArray.get(j).getReservationDate().equals(reservationDate)){
                         //check if new reservation is within 90 mins of another reservation
-                        if(reservationTime.isAfter(reservationArray.get(i).getReservationTime().minusMinutes(90)) && reservationTime.isBefore(reservationArray.get(i).getReservationTime().plusMinutes(90))){
+                        if(reservationTime.isAfter(reservationArray.get(j).getReservationTime().minusMinutes(90)) && reservationTime.isBefore(reservationArray.get(j).getReservationTime().plusMinutes(90))){
                             //if above conditions are met, that means current reservation clashes with another reservation
                             available = 0;
                             break;
