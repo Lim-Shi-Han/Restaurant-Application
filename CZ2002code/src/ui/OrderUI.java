@@ -30,10 +30,10 @@ public class OrderUI {
             int tableNumber = sc.nextInt();
             sc.nextLine();
             //if no one at table stop order
-            // if(!tableList.getTableList().get(tableNumber).getIsOccupied()){
-            //     System.out.println("Table is not occupied! Order terminating...");
-            //     return;
-            // }
+            if(!tableList.getTableList().get(tableNumber).getIsOccupied()){
+                System.out.println("Table is not occupied! Order terminating...");
+                return;
+            }
             int customerPhoneNumber = tableList.getTableList().get(tableNumber).getPhoneNumber();
             boolean isMember = tableList.getTableList().get(tableNumber).isIsMember();
 
