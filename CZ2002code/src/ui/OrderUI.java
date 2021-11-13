@@ -30,10 +30,10 @@ public class OrderUI {
             int tableNumber = sc.nextInt();
             sc.nextLine();
             //if no one at table stop order
-            if(!tableList.getTableList().get(tableNumber).getIsOccupied()){
-                System.out.println("Table is not occupied! Order terminating...");
-                return;
-            }
+            // if(!tableList.getTableList().get(tableNumber).getIsOccupied()){
+            //     System.out.println("Table is not occupied! Order terminating...");
+            //     return;
+            // }
             int customerPhoneNumber = tableList.getTableList().get(tableNumber).getPhoneNumber();
             boolean isMember = tableList.getTableList().get(tableNumber).isIsMember();
 
@@ -136,8 +136,8 @@ public class OrderUI {
                             }
                             Order order = new Order(menuItemArray, promotionArray, customerPhoneNumber, staffID, tableNumber, totalPrice, isMember);
                             SalesReportManager.updateSalesReport(order);
-                            
-                            System.out.println("          OOP Restaurant          ");
+
+                            System.out.println("          OODP Restaurant          ");
                             System.out.println("**********************************");
                             System.out.println("Date: " + LocalDate.now() + ", Time: " + LocalTime.now());
                             System.out.println("Table Number: " + tableNumber);
@@ -146,17 +146,18 @@ public class OrderUI {
                             OrderManager.orderPromotionPrintNamePrice(promotionArray);
                             System.out.println("**********************************");
                             System.out.println("Subtotal price: $" + totalPrice);
-                            System.out.println("Price after taxes: $" + (totalPrice*0.07));
+                            System.out.println("GST: $" + (totalPrice*0.07));
+                            System.out.println("Service charge: $" + (totalPrice*0.1));
                             //members get 10% off total bill
                             if(isMember){
                                 System.out.println("Discount: $" + (totalPrice*0.1));
                             }
                             System.out.println("==================================");
                             if(isMember){
-                                System.out.println("TOTAL DUE: " + (totalPrice*1.07-totalPrice*0.1));
+                                System.out.println("TOTAL DUE: " + (totalPrice*1.07));
                             }
                             else{
-                                System.out.println("TOTAL DUE: " + (totalPrice*1.07));
+                                System.out.println("TOTAL DUE: " + (totalPrice*1.17));
                             }
                             System.out.println("==================================");
                             System.out.println("See you again soon!");
@@ -169,7 +170,9 @@ public class OrderUI {
 
                     System.out.println();
                 
-            }while (choice != 7 || choice != 8);
+                if (choice == 7 || choice == 8)break;
+                
+            }while (true);
         }catch (InputMismatchException e){
             System.out.println("Your input type was wrong!");
         }catch (IndexOutOfBoundsException e){
