@@ -1,5 +1,6 @@
 package entity;
 /**
+ * This class stores all the attributes of a table
  * @author Shi Han
  * @version 1.0
  * @since 2021-10-22
@@ -8,15 +9,33 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Table implements Serializable{
+		/**
+		 * number of table
+		 */
 		private int number;
+		/**
+		 * number of seats
+		 */
 		private int seating;
+		/**
+		 * whether table is occupied
+		 */
 		private boolean isOccupied;
+		/**
+		 * whether customer is member
+		 */
 		private boolean isMember;
+		/**
+		 * phone number of customer
+		 */
 		private int phoneNumber;
+		/**
+		 * array of reservations for the table
+		 */
 		private ArrayList<Reservation> reservationArray;
 
 		/**
-		 * this is the constructor
+		 * This is the constructor
 		 * @param number
 		 * @param seating
 		 */
@@ -29,8 +48,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this gets the table number
-		 * @return int
+		 * This method gets the table number
+		 * @return number this table number
 		 */
 		public int getNumber() {
 			return this.number;
@@ -38,8 +57,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this sets the table number
-		 * @param number
+		 * This method sets the table number
+		 * @param number set table number
 		 */
 		public void setNumber(int number) {
 			this.number = number;
@@ -47,8 +66,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this gets the seating capacity
-		 * @return int
+		 * This method gets the seating capacity
+		 * @return seating this number of seats
 		 */
 		public int getSeating() {
 			return this.seating;
@@ -56,8 +75,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this sets the seating capacity
-		 * @param seating
+		 * This method sets the seating capacity
+		 * @param seating number of seats in a table to be set to
 		 */
 		public void setSeating(int seating) {
 			this.seating = seating;
@@ -65,8 +84,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this gets the reservation array
-		 * @return ArrayList<Reservation>
+		 * This method gets the reservation array
+		 * @return ArrayList<Reservation> this reservation array
 		 */
 		public ArrayList<Reservation> getReservationArray() {
 			return this.reservationArray;
@@ -74,8 +93,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this sets the reservation array
-		 * @param reservationArray
+		 * THis method sets the reservation array
+		 * @param reservationArray reservation array to set to
 		 */
 		public void setReservationArray(ArrayList<Reservation> reservationArray) {
 			this.reservationArray = reservationArray;
@@ -83,8 +102,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this checks whether the table is occupied or not
-		 * @return boolean
+		 * This method checks whether the table is occupied or not
+		 * @return isOccupied shows if table is occupied
 		 */
 		public boolean isIsOccupied() {
 			return this.isOccupied;
@@ -92,8 +111,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this gets whether the table is occupied or not
-		 * @return boolean
+		 * This method gets whether the table is occupied or not
+		 * @return isOccupied shows if table is occupied
 		 */
 		public boolean getIsOccupied() {
 			return this.isOccupied;
@@ -101,8 +120,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this sets whether the table is occupied or not
-		 * @param isOccupied
+		 * This method sets whether the table is occupied or not
+		 * @param isOccupied boolean type to set to
 		 */
 		public void setIsOccupied(boolean isOccupied) {
 			this.isOccupied = isOccupied;
@@ -110,8 +129,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this checks if the customer is a member
-		 * @return boolean
+		 * This method checks if the customer is a member
+		 * @return isMember shows if customer at the table is a member
 		 */
 		public boolean isIsMember() {
 			return this.isMember;
@@ -119,8 +138,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this gets whether the customer is a member
-		 * @return boolean
+		 * This method gets whether the customer is a member
+		 * @return isMember shows if customer at the table is a member
 		 */
 		public boolean getIsMember() {
 			return this.isMember;
@@ -128,8 +147,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this sets whether the customer is a member
-		 * @param isMember
+		 * This method sets whether the customer is a member
+		 * @param isMember boolean type to be set to
 		 */
 		public void setIsMember(boolean isMember) {
 			this.isMember = isMember;
@@ -137,8 +156,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this gets the customer's phone number
-		 * @return int
+		 * This method gets the customer's phone number
+		 * @return phoneNumber this phone number
 		 */
 		public int getPhoneNumber() {
 			return this.phoneNumber;
@@ -146,8 +165,8 @@ public class Table implements Serializable{
 
 		
 		/** 
-		 * this sets the customer's phone number
-		 * @param phoneNumber
+		 * This method sets the customer's phone number
+		 * @param phoneNumber phone number to be set to
 		 */
 		public void setPhoneNumber(int phoneNumber) {
 			this.phoneNumber = phoneNumber;

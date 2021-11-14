@@ -2,9 +2,18 @@ package ui;
 import database.Menu;
 import manager.DatabaseManager;
 
+/**
+ * This class contains methods to print menu
+ * @author Xin Kai
+ * @version 1.2
+ * @since 2021-10-22
+*/
+
 public class MenuDisplay {
 	
-
+	/**
+	 * This method prints the menu items' names that are formatted in a way that is appropriate for editing the menu
+	 */
 	//Staff View
 	public static void menuItemPrintName() {
 		Menu menu = (Menu)DatabaseManager.fileRead("menu.bin");
@@ -26,6 +35,9 @@ public class MenuDisplay {
 		}
 	}
 
+	/**
+	 * This method prints the menu items in a way where it is user friendly for the customer
+	 */
 	//Customer View
 	public static void CustomerMenuItemPrintName() {
 		Menu menu = (Menu)DatabaseManager.fileRead("menu.bin");
@@ -48,6 +60,9 @@ public class MenuDisplay {
 		}
 	}
 	
+	/**
+	 * This method prints the promotion' names that are formatted in a way that is appropriate for editing the menu
+	 */
 	//Staff View
 	public static void promotionPrintName() {
 		Menu menu = (Menu)DatabaseManager.fileRead("menu.bin");
@@ -60,6 +75,9 @@ public class MenuDisplay {
 		}
 	}
 
+	/**
+	 * This method prints the menu items in a way where it is user friendly for the customer
+	 */
 	//Customer View
 	public static void CustomerPromotionPrintName() {
 		Menu menu = (Menu)DatabaseManager.fileRead("menu.bin");
@@ -73,12 +91,18 @@ public class MenuDisplay {
 		}
 	}
 
+	/**
+	 * print all menu items and promotions
+	 */
 	public static void menuPrintName() {
 		menuItemPrintName();
 		System.out.println();
 		promotionPrintName();
 	}
 
+	/**
+	 * print all menu items and promotions for customers
+	 */
 	public static void CustomerMenuPrintName(){
 		CustomerMenuItemPrintName();
 		System.out.println();

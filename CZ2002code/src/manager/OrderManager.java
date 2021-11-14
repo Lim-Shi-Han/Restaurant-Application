@@ -3,6 +3,7 @@ import java.util.*;
 import entity.MenuItem;
 import entity.Promotion;
 /**
+ * This class contains methods to handle and print order items
  * @author Anant
  * @version 1.0
  * @since 2021-10-22
@@ -12,8 +13,8 @@ public class OrderManager {
 
     
     /** 
-     * 
-     * @param menuItemArray
+     * This method prints order name and price
+     * @param menuItemArray array of menu items to be printed
      */
     public static void orderMenuItemPrintNamePrice(ArrayList<MenuItem> menuItemArray){
         if(menuItemArray.size() == 0){
@@ -29,7 +30,8 @@ public class OrderManager {
 
     
     /** 
-     * @param promotionArray
+     * This method prints promotion name and price
+     * @param promotionArray array of promotion to be printed
      */
     public static void orderPromotionPrintNamePrice(ArrayList<Promotion> promotionArray){
         if(promotionArray.size() == 0){

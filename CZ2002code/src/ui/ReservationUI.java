@@ -5,8 +5,18 @@ import java.time.format.DateTimeParseException;
 
 import manager.ReservationManager;
 
+/**
+ * This class contains methods to edit reservations
+ * @author Anant
+ * @version 1.2
+ * @since 2021-10-22
+*/
+
 public class ReservationUI{
 
+    /**
+     * This method creates a reservation by calling ReservationManager.reservationCreate
+     */
     public static void createReservation(){
         try{
             Scanner sc = new Scanner(System.in);
@@ -70,6 +80,9 @@ public class ReservationUI{
         }
     }
 
+    /**
+     * This method checks if a reservation exists
+     */
     public static void checkReservation(){
         try{
             Scanner sc = new Scanner(System.in);
@@ -90,7 +103,9 @@ public class ReservationUI{
         }
     }
 
-
+    /**
+     * This method checks if a reservation exists and then removes the reservation
+     */
     public static void removeReservation(){
         try{
             Scanner sc = new Scanner(System.in);
@@ -111,6 +126,9 @@ public class ReservationUI{
         }
     }
 
+    /**
+     * This method checks if the reservation exists and admits customers to table when they arrive
+     */
     public static void arriveReservation(){
         try{
             Scanner sc = new Scanner(System.in);
@@ -139,10 +157,17 @@ public class ReservationUI{
         }
     }
 
+    /**
+     * This method frees table when customers leave
+     * @param tableNumber
+     */
     public static void leaveTable(int tableNumber){
         ReservationManager.tableLeave(tableNumber);
     }
 
+    /**
+     * This method checks for availability of table when customer walks in
+     */
     public static void walkIn(){
         try{
             Scanner sc = new Scanner(System.in);
@@ -176,10 +201,16 @@ public class ReservationUI{
         }
     }
 
+    /**
+     * This method checks if reservations have expired, and remove them if they are expired
+     */
     public static void checkExpired(){
         ReservationManager.expireCheck();
     }
 
+    /**
+     * This method prints all reservations
+     */
     public static void printAllReservations(){
         ReservationManager.allReservationsPrint();
     }

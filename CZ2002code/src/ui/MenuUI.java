@@ -7,7 +7,17 @@ import manager.MenuItemManager;
 import manager.PromotionManager;
 import java.util.*;
 
+/**
+ * This class contains methods to edit menu
+ * @author Shi Han
+ * @version 1.3
+ * @since 2021-10-22
+*/
+
 public class MenuUI {
+	/**
+	 * This method creates a menu item by calling MenuItemManager.createMenuItem
+	 */
     public static void menuItemCreate(){
 		try{
             Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
@@ -20,6 +30,9 @@ public class MenuUI {
 		}
 	}
 	
+	/**
+	 * This method creates a promotion by calling PromotionManager.createPromotion
+	 */
 	public static void promotionCreate(){
 		try{ 
             Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
@@ -37,6 +50,9 @@ public class MenuUI {
 		}
 	}
 
+	/**
+	 * This method updates a menu item by calling MenuItemManager.updateMenuItem
+	 */
 	public static void menuItemUpdate(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getMenuItemArray().size() == 0) {
@@ -69,6 +85,9 @@ public class MenuUI {
 		}
 	}
 	
+	/**
+	 * This method updates a promotion by calling PromotionManager.updatePromotion
+	 */
 	public static void promotionUpdate() {
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getPromotionArray().size() == 0) {
@@ -107,7 +126,9 @@ public class MenuUI {
 		}
 	}
 	
-
+	/**
+	 * This method removes a menu item from menu
+	 */
 	public static void menuItemRemove(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getMenuItemArray().size() == 0) {
@@ -131,6 +152,9 @@ public class MenuUI {
 		}
 	}
 	
+	/**
+	 * This method removes a promotion from menu
+	 */
 	public static void promotionRemove(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin");
 		if(menu.getPromotionArray().size() == 0) {

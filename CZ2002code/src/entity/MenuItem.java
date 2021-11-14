@@ -1,16 +1,28 @@
 package entity;
 /**
- * Represents menuitem details
- * @author group 4
+ * This class stores all the attributes of a menu item
+ * @author Xin Kai
  * @version 1.0
  * @since 2021-10-22
  */
 
 public class MenuItem extends AbstractMenu{
 
+	/**
+	 * name of menu item
+	 */
 	private String foodName;
+	/**
+	 * type of menu item
+	 */
 	private String foodType;
+	/**
+	 * description of menu item
+	 */
 	private String foodDescription;
+	/**
+	 * price of menu item
+	 */
 	private double foodPrice;
 
 	/**
@@ -28,65 +40,59 @@ public class MenuItem extends AbstractMenu{
 		this.foodPrice = foodPrice;
 	}
 
-	/*
-	public MenuItem(String name, String foodType, String description, double price){
-		super(name, description, price);
-		this.foodType = foodType;
-
-	}*/
 	/**
-	 * this assigns foodname
-	 * @param foodName
+	 * This method assigns name of menu iteme
+	 * @param foodName set name of menu item
 	 */
 	public void setName(String foodName) {
 		this.foodName = foodName;
 	}
 	/**
-	 * this sets foodtype
-	 * @param foodType
+	 * This method sets type of menu item
+	 * @param foodType set type of menu item
 	 */
 	public void setFoodType(String foodType) {
 		this.foodType = foodType;
 	}
 	/**
-	 * this sets the food description
-	 * @param foodDescription
+	 * This method sets the description of menu item
+	 * @param foodDescription set description of menu item
 	 */
 	public void setDescription(String foodDescription) {
 		this.foodDescription = foodDescription;
 	}
 	/**
-	 * this sets foodprice
-	 * @param foodPrice
+	 * This method sets price of menu item
+	 * @param foodPrice set price of menu item
 	 */
 	public void setPrice(double foodPrice) {
 		this.foodPrice = foodPrice;
 	}
 	
 	/**
-	 * this gets foodname
-	 * @return the foodname
+	 * This method gets foodname
+	 * @return foodName this name of menu item
 	 */
 	public String getName() {
 		return foodName;
 	}
 	/**
-	 * gets foodtype
-	 * @return the foodtype
+	 * Thie method gets foodtype
+	 * @return foodType this type of menu item
 	 */
 	public String getFoodType() {
 		return foodType;
 	}
 	/**
-	 * gets the Description
-	 * @return the foodDescription
+	 * This method gets the Description
+	 * @return foodDescription this description of menu item
 	 */
 	public String getDescription() {
 		return foodDescription;
 	}
 	/**
-	 * gets Price from the class
-	 * @return foodprice
+	 * This method gets Price from the class
+	 * @return foodPrice this price of menu item
 	 */
 	public double getPrice() {
 		return foodPrice;

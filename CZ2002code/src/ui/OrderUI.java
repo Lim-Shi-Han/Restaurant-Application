@@ -13,8 +13,18 @@ import database.Menu;
 import database.TableList;
 import database.StaffList;
 
+/**
+ * This class contains methods to create order
+ * @author Xin Kai
+ * @version 1.2
+ * @since 2021-10-22
+*/
+
 public class OrderUI implements SingaporeConstants{
-    
+
+    /**
+     * This method creates an order
+     */
     public static void createOrder(){
         Menu menu = (Menu) DatabaseManager.fileRead("menu.bin"); 
         TableList tableList = (TableList) DatabaseManager.fileRead("table.bin");      

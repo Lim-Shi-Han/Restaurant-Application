@@ -3,10 +3,20 @@ import java.util.*;
 import java.time.*;
 import entity.Order;
 import database.SalesReport;
-import manager.DatabaseManager;
+
+/**
+ * This class contains a method to update sales report
+ * @author Sahaj
+ * @version 1.5
+ * @since 2021-10-22
+*/
 
 public class SalesReportManager {
 
+    /**
+     * This method takes in order and updates the sales report based on the incoming order
+     * @param order order that is submitted and to be recorded in sales report
+     */
     public static void updateSalesReport(Order order) {
         
         SalesReport salesReport = (SalesReport) DatabaseManager.fileRead("salesReport.bin");

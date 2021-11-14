@@ -3,10 +3,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import entity.Table;
 
+/**
+ * This class contains methods to access list of tables in restaurant
+ * @author Xin Kai
+ * @version 1.1
+ * @since 2021-10-23
+*/
 public class TableList implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Array of tables in restaurant
+	 */
 	private ArrayList<Table> tableList = new ArrayList<>();
 
 	public TableList() {
@@ -34,6 +43,10 @@ public class TableList implements Serializable{
 
 	}
 
+	/**
+	 * This method returns array of tables in restaurant
+	 * @return tableList this array of tables in restaurant
+	 */
 	public ArrayList<Table> getTableList() {
 		return this.tableList;
 	}	
