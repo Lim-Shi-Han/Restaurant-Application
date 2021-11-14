@@ -70,7 +70,7 @@ public class MenuItemManager {
 				
 					case(1): //update name
 						System.out.println("Update name:");
-						menuItem.setFoodName(sc.nextLine());
+						menuItem.setName(sc.nextLine());
 						System.out.println();
 						break;
 						
@@ -82,14 +82,14 @@ public class MenuItemManager {
 						
 					case(3): //update description
 						System.out.println("Update description:");
-						menuItem.setFoodDescription(sc.nextLine());
+						menuItem.setDescription(sc.nextLine());
 						System.out.println();
 						break;
 						
 					case(4): //update price
 						try{
 							System.out.println("Update price:");
-							menuItem.setFoodPrice(sc.nextDouble());
+							menuItem.setPrice(sc.nextDouble());
 							System.out.println();
 							break;
 						}catch (InputMismatchException e){

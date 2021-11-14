@@ -33,19 +33,19 @@ public class MenuItem extends AbstractMenu implements Serializable{
 	public void setDescription(String foodDescription) {
 		this.foodDescription = foodDescription;
 	}
-	public void setFoodPrice(double foodPrice) {
+	public void setPrice(double foodPrice) {
 		this.foodPrice = foodPrice;
 	}	
-	public String getFoodName() {
+	public String getName() {
 		return foodName;
 	}
 	public String getFoodType() {
 		return foodType;
 	}
-	public String getFoodDescription() {
+	public String getDescription() {
 		return foodDescription;
 	}
-	public double getFoodPrice() {
+	public double getPrice() {
 		return foodPrice;
 	}
 	

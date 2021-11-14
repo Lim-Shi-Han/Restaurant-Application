@@ -23,7 +23,7 @@ public class Promotion extends AbstractMenu implements Serializable{
 		this.foodArray = foodArray;
 	}*/
 	
-	public String getPromotionName() {
+	public String getName() {
 		return this.promotionName;
 	}
 
@@ -31,11 +31,11 @@ public class Promotion extends AbstractMenu implements Serializable{
 		return this.foodArray;
 	}	
 
-	public double getPromotionPrice() {
+	public double getPrice() {
 		return this.promotionPrice;
 	}
 
-	public String getPromotionDescription() {
+	public String getDescription() {
 		return this.promotionDescription;
 	}
 
@@ -47,11 +47,11 @@ public class Promotion extends AbstractMenu implements Serializable{
 		this.foodArray = foodArray;
 	}
 
-	public void setPromotionPrice(double promotionPrice) {
+	public void setPrice(double promotionPrice) {
 		this.promotionPrice = promotionPrice;
 	}
 
-	public void setPromotionDescription(String promotionDescription) {
+	public void setDescription(String promotionDescription) {
 		this.promotionDescription = promotionDescription;
 	}
 	

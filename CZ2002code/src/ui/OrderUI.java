@@ -88,8 +88,8 @@ public class OrderUI implements SingaporeConstants{
                             sc.nextLine();
                             menuItem = menu.getMenuItemArray().get(selection-1);
                             menuItemArray.add(menuItem);
-                            System.out.println(menuItem.getFoodName() + " added to your order!");
-                            totalPrice += menuItem.getFoodPrice();
+                            System.out.println(menuItem.getName() + " added to your order!");
+                            totalPrice += menuItem.getPrice();
                             break;
                         case 3: //Add promotion
                             MenuDisplay.promotionPrintName();
@@ -102,8 +102,8 @@ public class OrderUI implements SingaporeConstants{
                             sc.nextLine();
                             promotion = menu.getPromotionArray().get(selection-1);
                             promotionArray.add(promotion);
-                            System.out.println(promotion.getPromotionName() + " added to your order!");
-                            totalPrice += promotion.getPromotionPrice();
+                            System.out.println(promotion.getName() + " added to your order!");
+                            totalPrice += promotion.getPrice();
                             break;
                         case 4: //Remove menu item
                             OrderManager.orderMenuItemPrintNamePrice(menuItemArray);
@@ -112,8 +112,8 @@ public class OrderUI implements SingaporeConstants{
                             selection = sc.nextInt();
                             sc.nextLine();
                             menuItem = menuItemArray.remove(selection-1);
-                            System.out.println(menuItem.getFoodName() + " removed!");
-                            totalPrice -= menuItem.getFoodPrice();
+                            System.out.println(menuItem.getName() + " removed!");
+                            totalPrice -= menuItem.getPrice();
                             break;
                         case 5: //Remove promotion
                             OrderManager.orderPromotionPrintNamePrice(promotionArray);
@@ -122,8 +122,8 @@ public class OrderUI implements SingaporeConstants{
                             selection = sc.nextInt();
                             sc.nextLine();
                             promotion = promotionArray.remove(selection-1);
-                            System.out.println(promotion.getPromotionName() + " removed!");
-                            totalPrice -= promotion.getPromotionPrice();
+                            System.out.println(promotion.getName() + " removed!");
+                            totalPrice -= promotion.getPrice();
                             break;
                         case 6: //Print order
                             OrderManager.orderMenuItemPrintNamePrice(menuItemArray);

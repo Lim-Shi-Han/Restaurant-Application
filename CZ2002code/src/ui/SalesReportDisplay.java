@@ -45,7 +45,7 @@ public class SalesReportDisplay {
             for (int i = 0; i < dayOrderHistory.size(); i++){
                 ArrayList<MenuItem> menuItemArray = dayOrderHistory.get(i).getMenuItemArray();
                 for(int j = 0; j < menuItemArray.size(); j++){
-                    String foodName = menuItemArray.get(j).getFoodName();
+                    String foodName = menuItemArray.get(j).getName();
                     if(dayFoodCount.get(foodName) != null){
                         int newFoodCount = dayFoodCount.get(foodName) + 1;
                         dayFoodCount.put(foodName, newFoodCount);
@@ -56,7 +56,7 @@ public class SalesReportDisplay {
                 }
                 ArrayList<Promotion> promotionArray = dayOrderHistory.get(i).getPromotionArray();
                 for(int j = 0; j < promotionArray.size(); j++){
-                    String promotionName = promotionArray.get(j).getPromotionName();
+                    String promotionName = promotionArray.get(j).getName();
                     if(dayFoodCount.get(promotionName) != null){
                         int newFoodCount = dayFoodCount.get(promotionName) + 1;
                         dayFoodCount.put(promotionName, newFoodCount);
@@ -112,7 +112,7 @@ public class SalesReportDisplay {
                         for (int j = 0; j < dayOrderHistory.size(); j++){
                             ArrayList<MenuItem> menuItemArray = dayOrderHistory.get(j).getMenuItemArray();
                             for(int k = 0; k < menuItemArray.size(); k++){
-                                String foodName = menuItemArray.get(k).getFoodName();
+                                String foodName = menuItemArray.get(k).getName();
                                 if(monthFoodCount.get(foodName) != null){
                                     int newFoodCount = monthFoodCount.get(foodName) + 1;
                                     monthFoodCount.put(foodName, newFoodCount);
@@ -123,7 +123,7 @@ public class SalesReportDisplay {
                             }
                             ArrayList<Promotion> promotionArray = dayOrderHistory.get(i).getPromotionArray();
                             for(int k = 0; k < promotionArray.size(); k++){
-                                String promotionName = promotionArray.get(k).getPromotionName();
+                                String promotionName = promotionArray.get(k).getName();
                                 if(monthFoodCount.get(promotionName) != null){
                                     int newFoodCount = monthFoodCount.get(promotionName) + 1;
                                     monthFoodCount.put(promotionName, newFoodCount);

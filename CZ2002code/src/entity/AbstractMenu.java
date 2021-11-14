@@ -16,5 +16,8 @@ abstract class AbstractMenu {
     public abstract void setName(String name);
     public abstract void setDescription(String description);
     public abstract void setPrice(double price);
+    public abstract String getName();
+    public abstract String getDescription();
+    public abstract double getPrice();
 
 }

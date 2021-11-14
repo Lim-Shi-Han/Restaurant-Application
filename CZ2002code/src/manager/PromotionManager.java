@@ -48,7 +48,7 @@ public class PromotionManager {
 				
 					case(1): //update name
 						System.out.println("Update name:");
-						promotion.setPromotionName(sc.nextLine());
+						promotion.setName(sc.nextLine());
 						System.out.println();
 						break;
 					case(2): //update menu item
@@ -71,14 +71,14 @@ public class PromotionManager {
 						
 					case(3): //update description
 						System.out.println("Update description:");
-						promotion.setPromotionDescription(sc.nextLine());
+						promotion.setDescription(sc.nextLine());
 						System.out.println();
 						break;
 						
 					case(4): //update price
 						try{
 							System.out.println("Update price:");
-							promotion.setPromotionPrice(sc.nextDouble());
+							promotion.setPrice(sc.nextDouble());
 							System.out.println();
 							break;
 						}catch (InputMismatchException e){
