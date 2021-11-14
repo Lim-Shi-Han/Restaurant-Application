@@ -20,14 +20,14 @@ public class Application {
 						+ "(5) Remove Menu Item\n"
 						+ "(6) Remove Promotion\n"
 						+ "(7) Print Menu\n"
-                        + "(8) Order\n"//includes creating, viewing or changing order
+                        + "(8) Order\n"//includes creating, viewing or changing order, and upon submitting order customer leaves table
                         + "(9) Create Reservation Booking\n"
                         + "(10) Check Reservation Booking\n"
 						+ "(11) Print all Reservations\n"
                         + "(12) Remove Reservation Booking\n"
                         + "(13) Check Expired Reservation Booking \n"
 						+ "(14) Walk in \n"
-						+ "(15) Leave table\n"
+						+ "(15) Reservation has arrived\n"
                         + "(16) View Sales Report\n"
 						+ "(17) Quit\n"
 						+ "Enter the number of your choice: ");
@@ -91,9 +91,9 @@ public class Application {
 					case 14:
 						ReservationUI.walkIn();
 						break;
-					
+
 					case 15:
-						ReservationUI.leaveTable();
+						ReservationUI.arriveReservation();
 						break;
                     
 					case 16:

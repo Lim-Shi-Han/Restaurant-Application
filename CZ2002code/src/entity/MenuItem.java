@@ -2,7 +2,7 @@ package entity;
 
 import java.io.Serializable;
 
-public class MenuItem extends AbstractMenu implements Serializable{
+public class MenuItem extends AbstractMenu{
 
 	private String foodName;
 	private String foodType;

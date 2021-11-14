@@ -136,6 +136,10 @@ public class OrderUI implements SingaporeConstants{
                             if(isMember){
                                 totalPrice *= 0.9;
                             }
+                            if(menuItemArray.isEmpty() && promotionArray.isEmpty()){
+                                System.out.println("-Empty order-");
+                            }
+                            else{
                             Order order = new Order(menuItemArray, promotionArray, customerPhoneNumber, staffID, tableNumber, totalPrice, isMember);
                             SalesReportManager.updateSalesReport(order);
 
@@ -163,6 +167,8 @@ public class OrderUI implements SingaporeConstants{
                             }
                             System.out.println("==================================");
                             System.out.println("See you again soon!");
+                            }
+                            ReservationUI.leaveTable(tableNumber);
                             break;
                         case 8:
                             break;

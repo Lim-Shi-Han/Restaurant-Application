@@ -135,16 +135,8 @@ public class ReservationUI{
         }
     }
 
-    public static void leaveTable(){
-        try{
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Input table number:");
-            int tableNumber = sc.nextInt();
-            sc.nextLine();
-            ReservationManager.tableLeave(tableNumber);
-        }catch(InputMismatchException e){
-            System.out.println("Your input type was wrong!");
-        }
+    public static void leaveTable(int tableNumber){
+        ReservationManager.tableLeave(tableNumber);
     }
 
     public static void walkIn(){

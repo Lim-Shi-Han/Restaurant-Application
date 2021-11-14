@@ -3,7 +3,7 @@ package entity;
 import java.io.Serializable;
 import java.util.*;
 
-public class Promotion extends AbstractMenu implements Serializable{
+public class Promotion extends AbstractMenu{
 
 	private String promotionName;
 	private ArrayList<String> foodArray = new ArrayList<>();

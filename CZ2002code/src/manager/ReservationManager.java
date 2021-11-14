@@ -127,6 +127,7 @@ public class ReservationManager {
         int tableNumber = -1;
 
         LocalDate now = LocalDate.now();
+        LocalTime nowTime = LocalTime.now();
 
         for(int i = 0; i < tableList.getTableList().size(); i++){
             //find tables with large enough capacity
@@ -138,7 +139,7 @@ public class ReservationManager {
                     //check if any date clashes
                     if(reservationArray.get(j).getReservationDate().equals(now)){
                         //check if new reservation is within 90 mins of another reservation
-                        if(LocalTime.now().isAfter(reservationArray.get(j).getReservationTime().minusMinutes(90)) && LocalTime.now().isBefore(reservationArray.get(j).getReservationTime().plusMinutes(90))){
+                        if(nowTime.isAfter(reservationArray.get(j).getReservationTime().minusMinutes(90)) && nowTime.isBefore(reservationArray.get(j).getReservationTime().plusMinutes(90))){
                             //if above conditions are met, that means current reservation clashes with another reservation
                             available = 0;
                             break;
@@ -174,17 +175,24 @@ public class ReservationManager {
     public static void expireCheck(){
         ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");
 
-        for (int i = 0; i <= reservationList.getReservationArray().size(); i++){
-            //If the booking was for before today or for a timing that was more than half an hour ago, reservation has expired and cancel reservation
-            if(reservationList.getReservationArray().get(i).getReservationDate().isBefore(LocalDate.now()) || (reservationList.getReservationArray().get(i).getReservationDate().isEqual(LocalDate.now()) && reservationList.getReservationArray().get(i).getReservationTime().plusMinutes(30).isBefore(LocalTime.now()))){
-                String reservationID = reservationList.getReservationArray().get(i).getReservationID();
-                int spaceIndex = reservationID.indexOf(" ");
-                String reservationIDWithoutTableNumber = reservationID.substring(spaceIndex + 1);
-                //pass the short version of the reservationID into reservationRemove 
-                reservationRemove(reservationIDWithoutTableNumber);
-                //account for removal of reservation in array
-                i--;
+        try{
+            for (int i = 0; i <= reservationList.getReservationArray().size(); i++){
+                //If the booking was for before today or for a timing that was more than half an hour ago, reservation has expired and cancel reservation
+                LocalDate now = LocalDate.now();
+                LocalTime nowTime = LocalTime.now();
+                if(reservationList.getReservationArray().get(i).getReservationDate().isBefore(now) || (reservationList.getReservationArray().get(i).getReservationDate().isEqual(now) && reservationList.getReservationArray().get(i).getReservationTime().plusMinutes(30).isBefore(nowTime))){
+                    String reservationID = reservationList.getReservationArray().get(i).getReservationID();
+                    int spaceIndex = reservationID.indexOf(" ");
+                    String reservationIDWithoutTableNumber = reservationID.substring(spaceIndex + 1);
+                    //pass the short version of the reservationID into reservationRemove 
+                    reservationRemove(reservationIDWithoutTableNumber);
+                    //account for removal of reservation in array
+                    i--;
+                    System.out.println(reservationList.getReservationArray().size());
+                }
             }
+        }catch (IndexOutOfBoundsException e){
+            System.out.println();
         }
 
         System.out.println("Check for expired reservations complete!");
