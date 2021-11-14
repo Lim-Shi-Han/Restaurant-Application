@@ -36,9 +36,5 @@ public class TableList implements Serializable{
 
 	public ArrayList<Table> getTableList() {
 		return this.tableList;
-	}
-
-
-	
-	
+	}	
 }
