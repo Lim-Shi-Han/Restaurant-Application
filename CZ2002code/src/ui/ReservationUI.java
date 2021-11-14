@@ -44,7 +44,7 @@ public class ReservationUI{
                 return;
             }
             //Check that reservation is not made for a past date
-            if(reservationDate.isBefore(today) && reservationTime.isBefore(currentTime)) {
+            if(reservationDate.equals(today) && reservationTime.isBefore(currentTime)) {
                 System.out.println("You cannot pick a timing before now!");
                 return;
             }
