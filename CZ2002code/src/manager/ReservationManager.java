@@ -188,7 +188,6 @@ public class ReservationManager {
                     reservationRemove(reservationIDWithoutTableNumber);
                     //account for removal of reservation in array
                     i--;
-                    System.out.println(reservationList.getReservationArray().size());
                 }
             }
         }catch (IndexOutOfBoundsException e){
