@@ -123,6 +123,7 @@ public class MenuUI {
 			sc.nextLine();
 			menu.getMenuItemArray().remove(menuItemChoice-1);
             DatabaseManager.fileWrite(menu, "menu.bin");
+			System.out.println("Menu Item removed");
 		}catch (InputMismatchException e){
 			System.out.println("Choice of menu item is invalid (not an integer). Menu Item not removed...");
 		}catch (IndexOutOfBoundsException e){
