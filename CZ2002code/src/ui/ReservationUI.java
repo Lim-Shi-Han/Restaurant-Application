@@ -19,6 +19,10 @@ public class ReservationUI{
                 System.out.println("Our tables can only accomodate a maximum of 10 people!");
                 return;
             }
+            if(numberOfPeople < 1){
+                System.out.println("No reservation available for zero or negative number of guests!");
+                return;
+            }
 
             //Date
             System.out.println("Input reservation date in YYYY-MM-DD format:");
@@ -122,7 +126,7 @@ public class ReservationUI{
                 System.out.println("Customer can only arrive 5 minuts before booking");
                 return;
             }
-            System.out.println("Input table number:");
+            System.out.println("Input customer phone number:");
             int customerPhoneNumber = sc.nextInt();
             sc.nextLine();
             String customerPhoneNumberString = String.valueOf(customerPhoneNumber);
@@ -154,6 +158,10 @@ public class ReservationUI{
             sc.nextLine();
             if(numberOfPeople > 10){
                 System.out.println("Our tables can only accomodate a maximum of 10 people!");
+                return;
+            }
+            if(numberOfPeople < 1){
+                System.out.println("No reservation available for zero or negative number of guests!");
                 return;
             }
 
