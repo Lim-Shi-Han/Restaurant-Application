@@ -61,7 +61,7 @@ public class ReservationManager {
         }
 
         //look for matching reservationID in the table
-        if(tableNumber != 1){
+        if(tableNumber != -1){
             for(int i = 0; i < tableList.getTableList().get(tableNumber).getReservationArray().size(); i++){
                 if(tableList.getTableList().get(tableNumber).getReservationArray().get(i).getReservationID().equals(fullReservationID)){
                     tableList.getTableList().get(tableNumber).getReservationArray().remove(i);
