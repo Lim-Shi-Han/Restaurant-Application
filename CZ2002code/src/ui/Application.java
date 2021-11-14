@@ -1,6 +1,13 @@
 package ui;
 import java.util.*;
 
+/**
+ * This class serves as the main screen of the program with no methods
+ * @author Dhruv
+ * @version 1.3
+ * @since 2021-10-28
+*/
+
 public class Application {
     public static void main(String[] args){
         System.out.println();

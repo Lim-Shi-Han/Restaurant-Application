@@ -2,9 +2,21 @@ package manager;
 import java.util.*;
 import entity.Promotion;
 
+/**
+ * This class contains methods to create and update promotion
+ * @author Shi Han
+ * @version 1.2
+ * @since 2021-10-22
+*/
+
 public class PromotionManager {
 
-    public static Promotion createPromotion() {
+    
+	/** 
+	 * This method creates a promotion
+	 * @return Promotion
+	*/
+	public static Promotion createPromotion() {
 		Scanner sc= new Scanner(System.in);
         double promotionPrice = 0;
 		
@@ -34,6 +46,11 @@ public class PromotionManager {
         return newPromotion;
 	}
 	
+	
+	/**
+	 * This method updates a promotion
+	 * @param promotion promotion object to update
+	*/
 	public static void updatePromotion(Promotion promotion) {
 		Scanner sc = new Scanner(System.in);	
 		
@@ -99,6 +116,11 @@ public class PromotionManager {
 		}while (updateChoice!=5);	
 	}
 	
+	
+	/** 
+	 * This method adds food items to a promotion
+	 * @param foodArray foodArray of promotion object to have food items added
+	 */
 	public static void addFoodItem(ArrayList<String> foodArray){ //allows users to add food items
 		Scanner sc = new Scanner(System.in);
 		try{
@@ -114,6 +136,11 @@ public class PromotionManager {
 		}
 	}
 	
+	
+	/** 
+	 * 	This method adds food items to a promotion
+	 * 	@param foodArray foodArray of promotion object to have food items removed
+	 */
 	public static void removeFoodItem(ArrayList<String> foodArray) { //displays menuItems in promotion and let's user remove menuItem
 		Scanner sc = new Scanner(System.in);
 		int menuItemChoice;
