@@ -3,51 +3,24 @@ import java.util.*;
 import java.io.Serializable;
 import java.time.*;
 /**
- * This class stores all the attributes of an order
+ * Represents the order detials 
  * @author Sahaj
  * @version 1.2
  * @since 2021-10-22
  */
 
 public class Order implements Serializable{
-    /**
-     * menu item array
-     */
     private ArrayList<MenuItem> menuItemArray = new ArrayList<>();
-    /**
-     * promotion array
-     */
 	private ArrayList<Promotion> promotionArray = new ArrayList<>();
-    /**
-     * phone number of customer
-     */
     int customerPhoneNumber;
-    /**
-     * ID of staff
-     */
     int staffID;
-    /**
-     * table number
-     */
     int tableNumber;
-    /**
-     * total price
-     */
     double totalPrice;
-    /**
-     * whether customer is member
-     */
     boolean isMember;
-    /**
-     * date
-     */
     LocalDate date;
-    /**
-     * time
-     */
     LocalTime time;
 /**
- * This is the constructor for the class
+ * this is the constructor for the class
  * @param menuItemArray
  * @param promotionArray
  * @param customerPhoneNumber
@@ -70,15 +43,15 @@ public class Order implements Serializable{
 
     }
     /**
-     * This method gets the menu item array from the class
-     * @return menuItemArray this menu item array
+     * this gets the menu item array from the class
+     * @return menuItem array
      */
     public ArrayList<MenuItem> getMenuItemArray() {
         return this.menuItemArray;
     }
     /**
-     * This method sets the menu item array
-     * @param menuItemArray set menu item array of order
+     * this sets the menu item array
+     * @param menuItemArray
      */
     public void setMenuItemArray(ArrayList<MenuItem> menuItemArray) {
         this.menuItemArray = menuItemArray;
@@ -86,8 +59,8 @@ public class Order implements Serializable{
     
     
     /** 
-     * This method gets the promotion array
-     * @return promotionArray this promotion array of order
+     * this gets the promotion array
+     * @return ArrayList<Promotion>
      */
     public ArrayList<Promotion> getPromotionArray() {
         return this.promotionArray;
@@ -95,8 +68,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method is sets the promotion array
-     * @param promotionArray set promotion array of order
+     * this is sets the promotion array
+     * @param promotionArray
      */
     public void setPromotionArray(ArrayList<Promotion> promotionArray) {
         this.promotionArray = promotionArray;
@@ -104,8 +77,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method gets the customer phone number
-     * @return customerPhoneNumber this phone number of customer
+     * this gets the customer phone number
+     * @return int
      */
     public int getCustomerPhoneNumber() {
         return this.customerPhoneNumber;
@@ -113,8 +86,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method sets the customer phone no.
-     * @param customerPhoneNumber set phone number of customer
+     * this sets the customer phone no.
+     * @param customerPhoneNumber
      */
     public void setCustomerPhoneNumber (int customerPhoneNumber) {
         this.customerPhoneNumber = customerPhoneNumber;
@@ -122,8 +95,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method gets staffID from the class
-     * @return staffID this ID of staff taking order
+     * this gets staffID from the class
+     * @return int
      */
     public int getStaffID() {
         return this.staffID;
@@ -131,8 +104,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method sets staffID
-     * @param staffID set staffID of staff taking order
+     * this sets staffID
+     * @param staffID
      */
     public void setStaffID(int staffID) {
         this.staffID = staffID;
@@ -140,8 +113,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method gets the table no.
-     * @return tableNumber this table number of order
+     * this gets the table no.
+     * @return int
      */
     public int getTableNumber() {
         return this.tableNumber;
@@ -149,8 +122,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method sets the tableNumber
-     * @param tableNumber set table number of order
+     * this sets the tableNumber
+     * @param tableNumber
      */
     public void setTableNumber(int tableNumber) {
         this.tableNumber = tableNumber;
@@ -158,8 +131,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method gets the total price
-     * @return totalPrice this total price of order
+     * this gets the total price
+     * @return double
      */
     public double getTotalPrice() {
         return this.totalPrice;
@@ -167,8 +140,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method sets total price for the order
-     * @param totalPrice set total price of order
+     * this sets total price for the order
+     * @param totalPrice
      */
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
@@ -176,8 +149,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method gets date of the order
-     * @return date this date of order
+     * this gets date of the order
+     * @return LocalDate
      */
     public LocalDate getDate() {
         return this.date;
@@ -185,8 +158,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method sets the date for the order
-     * @param date set date of order
+     * this sets the date for the order
+     * @param date
      */
     public void setDate(LocalDate date) {
         this.date = date;
@@ -194,8 +167,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method gets the order time
-     * @return time this time of order
+     * this gets the order time
+     * @return LocalTime
      */
     public LocalTime getTime() {
         return this.time;
@@ -203,8 +176,8 @@ public class Order implements Serializable{
 
     
     /** 
-     * This method sets the order time
-     * @param time set time of order
+     * this sets the order time
+     * @param time
      */
     public void setTime(LocalTime time) {
         this.time = time;

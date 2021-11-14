@@ -1,32 +1,20 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.*;
 /**
- * This class stores all the attributes of a promotion
  * @author Anant
  * @version 1.3
  * @since 2021-10-22
  */
 public class Promotion extends AbstractMenu{
 
-	/**
-	 * name of promotion
-	 */
 	private String promotionName;
-	/**
-	 * array of food in promotion
-	 */
 	private ArrayList<String> foodArray = new ArrayList<>();
-	/**
-	 * description of promotion
-	 */
 	private String promotionDescription;
-	/**
-	 * price of promotion
-	 */
 	private double promotionPrice;
 /**
- * This is the constructor
+ * this is the constructor
  * @param promotionName
  * @param foodArray
  * @param promotionDescription
@@ -40,9 +28,17 @@ public class Promotion extends AbstractMenu{
 	}
 
 	
+	/** 
+	 * @return String
+	 */
+	/*
+	public Promotion(String name, ArrayList<String> foodArray, String description, double price){
+		super(name, description, price);
+		this.foodArray = foodArray;
+	}*/
 	/**
-	 * This method gets the promotion name from the class
-	 * @return promotionName this name of promotion
+	 * this gets the promotion name from the class
+	 * @return String 
 	 */
 	public String getName() {
 		return this.promotionName;
@@ -50,8 +46,8 @@ public class Promotion extends AbstractMenu{
 
 	
 	/** 
-	 * This method gets the food array from the class
-	 * @return foodArray this array of food in promotion
+	 * this gets the food array from the class
+	 * @return ArrayList<String>
 	 */
 	public ArrayList<String> getFoodArray() {
 		return this.foodArray;
@@ -59,8 +55,8 @@ public class Promotion extends AbstractMenu{
 
 	
 	/** 
-	 * This method gets the promotion price from the class
-	 * @return promotionPrice this price of promotion
+	 * this gets the promotion price from the class
+	 * @return double
 	 */
 	public double getPrice() {
 		return this.promotionPrice;
@@ -68,8 +64,8 @@ public class Promotion extends AbstractMenu{
 
 	
 	/** 
-	 * This method gets the promotion description from the class
-	 * @return promotionDescription this description of promotion
+	 * this gets the promotion description from the class
+	 * @return String
 	 */
 	public String getDescription() {
 		return this.promotionDescription;
@@ -77,8 +73,8 @@ public class Promotion extends AbstractMenu{
 
 	
 	/** 
-	 * This method sets the promotion name 
-	 * @param promotionName set name of promotion
+	 * this sets the promotion name 
+	 * @param promotionName
 	 */
 	public void setName(String promotionName) {
 		this.promotionName = promotionName;
@@ -86,8 +82,8 @@ public class Promotion extends AbstractMenu{
 
 	
 	/** 
-	 * This method sets the food array in the class
-	 * @param foodArray set array of food in promotion
+	 * this sets the food array in the class
+	 * @param foodArray
 	 */
 	public void setFoodArray(ArrayList<String> foodArray) {
 		this.foodArray = foodArray;
@@ -95,8 +91,8 @@ public class Promotion extends AbstractMenu{
 
 	
 	/** 
-	 * This method sets the promotion price for the class
-	 * @param promotionPrice set price of promotion
+	 * this sets the promotion price for the class
+	 * @param promotionPrice
 	 */
 	public void setPrice(double promotionPrice) {
 		this.promotionPrice = promotionPrice;
@@ -104,8 +100,8 @@ public class Promotion extends AbstractMenu{
 
 	
 	/** 
-	 * This method sets the promotion description for the class
-	 * @param promotionDescription set description of promotion
+	 * this sets the promotion description for the class
+	 * @param promotionDescription
 	 */
 	public void setDescription(String promotionDescription) {
 		this.promotionDescription = promotionDescription;

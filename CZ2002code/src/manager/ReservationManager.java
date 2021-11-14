@@ -6,23 +6,8 @@ import database.Membership;
 import database.TableList;
 import database.ReservationList;
 
-/**
- * This class contains methods to handle a reservation (for eg creating reservation)
- * @author Anant
- * @version 1.0
- * @since 2021-10-22
-*/
-
 public class ReservationManager {
     
-    /**
-     * This method uses values sent by ReservationUI.createReservation to create a reservation
-     * @param numberOfPeople number of guests for new reservation
-     * @param reservationDate date of new reservation
-     * @param reservationTime time of new reservation
-     * @param customerName customer name
-     * @param customerPhoneNumber customer phone number
-     */
     public static void reservationCreate(int numberOfPeople, LocalDate reservationDate, LocalTime reservationTime, String customerName, int customerPhoneNumber){
         
         boolean isMember = checkMembership(customerPhoneNumber);   
@@ -44,10 +29,6 @@ public class ReservationManager {
         System.out.println("You have a table on " + reservationDate + " at " + reservationTime);
     }
 
-    /**
-     * This method takes part of the reservationID from ReservationUI.checkReservation to check if there is such a reservation
-     * @param reservationID ID of reservation to check
-     */
     public static void reservationCheck(String reservationID){
         ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");
         for(int i = 0; i < reservationList.getReservationArray().size(); i++){
@@ -60,11 +41,6 @@ public class ReservationManager {
         System.out.println("No such reservation found in the database!");
     }
 
-    /**
-     * This method takes part of the reservationID from ReservationUI.removeReservation to remove reservation from the reservation array
-     * @param reservationID
-     * @return reservation object of removed reservation
-     */
     public static Reservation reservationRemove(String reservationID){
         
         ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");
@@ -108,10 +84,6 @@ public class ReservationManager {
         return removedReservation;
     }
 
-    /**
-     * This method takes part of the reservationID from ReservationUI.arriveReservation to allocate table to reserved guests when they arrive
-     * @param reservationID ID of reservation of reservation arrival
-     */
     public static void reservationArrive(String reservationID){
         //attempt to remove reservation
 
@@ -136,10 +108,6 @@ public class ReservationManager {
         System.out.println("Guest reserved at table " + tableNumber + " has arrived!");
     }
 
-    /**
-     * This method is called by OrderUI and passes in the tableNumber when the invoice is printed so that the table can be released for the next guest
-     * @param tableNumber table number of vacating table
-     */
     public static void tableLeave(int tableNumber){
         TableList tableList = (TableList) DatabaseManager.fileRead("table.bin");
         if(tableList.getTableList().get(tableNumber).getIsOccupied()){
@@ -151,12 +119,7 @@ public class ReservationManager {
         tableList.getTableList().get(tableNumber).setIsOccupied(false);
         DatabaseManager.fileWrite(tableList, "table.bin");
     }
-    
-    /**
-     * This method is called by ReservationUI.walkIn to allocate walk in guests a table
-     * @param numberOfPeople number of people for walk in
-     * @param customerPhoneNumber phone number of customer
-     */
+
     public static void walkInReservation(int numberOfPeople, int customerPhoneNumber){
 
         TableList tableList = (TableList) DatabaseManager.fileRead("table.bin");
@@ -209,9 +172,6 @@ public class ReservationManager {
         System.out.println("Walk-in customer has been seated at table " + tableNumber);
     }
 
-    /**
-     * This method checks for expired reservations (pass 30 minutes from reservation time) and remove them from the array
-     */
     public static void expireCheck(){
         ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");
 
@@ -237,9 +197,6 @@ public class ReservationManager {
         System.out.println("Check for expired reservations complete!");
     } 
 
-    /**
-     * This method checks if customer is in membership database 
-     */
     public static boolean checkMembership(int customerPhoneNumber){
         
         Membership membership = (Membership) DatabaseManager.fileRead("membership.bin");
@@ -250,13 +207,6 @@ public class ReservationManager {
 
     }
 
-    /**
-     * This method checks the availability of a table at a certain time, and returns the number of a suitable table
-     * @param numberOfPeople number of people for reservation
-     * @param reservationDate date of reservation
-     * @param reservationTime time of reservation
-     * @return tableNumber 
-     */
     public static int checkAvailability(int numberOfPeople, LocalDate reservationDate, LocalTime reservationTime){
 
         TableList tableList = (TableList) DatabaseManager.fileRead("table.bin");
@@ -289,10 +239,6 @@ public class ReservationManager {
         return -1;
     }
 
-    /**
-     * 
-     * @param newReservation
-     */
     public static void addReservationToReservationList(Reservation newReservation){
         ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");
         reservationList.getReservationArray().add(newReservation);

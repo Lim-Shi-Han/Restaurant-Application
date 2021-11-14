@@ -1,7 +1,6 @@
 package manager;
 import java.io.*;
 /**
- * This class contains methods that aid in the read/write of .bin files
  * @author Sahaj
  * @version 1.1
  * @since 2021-10-22
@@ -10,9 +9,9 @@ public class DatabaseManager {
 
     
     /** 
-     * This method writes instances of the class into the database
-     * @param object name of class instance to be written into file
-     * @param fileName file in which it is being written into
+     * this writes instances of the class into the database
+     * @param object
+     * @param fileName
      */
     public static void fileWrite(Object object, String fileName) {//general write method
 		try {	
@@ -28,9 +27,9 @@ public class DatabaseManager {
 
 	
     /** 
-     * This method reads instances of the class from the database
-     * @param fileName name of file to be read from
-     * @return object name of object to be read into
+     * this reads instances of the class from the database
+     * @param Object(
+     * @return Object
      */
     public static Object fileRead(String fileName) {//general read method
 		Object object = new Object();

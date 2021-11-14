@@ -9,18 +9,8 @@ import entity.Order;
 import entity.MenuItem;
 import entity.Promotion;
 
-/**
- * This class contains methods to print sales report by time period
- * @author Shi Han
- * @version 1.2
- * @since 2021-10-22
-*/
-
 public class SalesReportDisplay {
 
-    /**
-     * This method prints sales report and there is an option to choose between day or month
-     */
     public static void printSales(){
         Scanner sc = new Scanner(System.in);
         try{
@@ -40,9 +30,6 @@ public class SalesReportDisplay {
         }
     }
 
-    /**
-     * This method prints sales report of a certain day
-     */
     public static void printDailySales(){
 
         try{
@@ -94,10 +81,7 @@ public class SalesReportDisplay {
             System.out.println("Wrong format of date!");
         }
     }
-    
-    /**
-     * This method prints sales report of a certain month
-     */
+
     public static void printMonthlySales(){
         try{
             Scanner sc = new Scanner(System.in);

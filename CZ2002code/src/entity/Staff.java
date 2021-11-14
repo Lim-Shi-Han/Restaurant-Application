@@ -1,6 +1,5 @@
 package entity;
 /**
- * This class stores all the attributes of a staff
  * @author Dhruv
  * @version 1.2
  * @since 2021-10-22
@@ -8,25 +7,13 @@ package entity;
 import java.io.Serializable;
 
 public class Staff implements Serializable{
-	/**
-	 * name of staff
-	 */
 	private String staffName;
-	/**
-	 * gender of staff
-	 */
 	private String staffGender;
-	/**
-	 * ID of staff
-	 */
 	private int staffID;
-	/**
-	 * job title
-	 */
 	private String jobTitle;
 
 	/**
-	 * This is the constructor
+	 * this is the constructor
 	 * @param staffName
 	 * @param staffGender
 	 * @param staffID
@@ -42,8 +29,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * This method gets the staff name
-	 * @return staffName this staff name
+	 * this gets the staff name
+	 * @return String
 	 */
 	public String getStaffName() {
 		return this.staffName;
@@ -51,8 +38,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * This method sets the staff name
-	 * @param staffName set staff name
+	 * this sets the staff name
+	 * @param staffName
 	 */
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
@@ -60,8 +47,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * This method gets the staff gender
-	 * @return staffGender this staff gender
+	 * this gets the staff gender
+	 * @return String
 	 */
 	public String getStaffGender() {
 		return this.staffGender;
@@ -69,8 +56,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * This method sets the staff gender
-	 * @param staffGender set staff gender
+	 * this sets the staff gender
+	 * @param staffGender
 	 */
 	public void setStaffGender(String staffGender) {
 		this.staffGender = staffGender;
@@ -78,8 +65,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * This method gets the staff id
-	 * @return staffID this staff id
+	 * this gets the staff id
+	 * @return int
 	 */
 	public int getStaffID() {
 		return this.staffID;
@@ -87,8 +74,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * Thie method sets the staff id
-	 * @param staffID set staff id
+	 * this sets the staff id
+	 * @param staffID
 	 */
 	public void setStaffID(int staffID) {
 		this.staffID = staffID;
@@ -96,8 +83,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * This method gets the job title
-	 * @return jobTitle this job title
+	 * this gets the job title
+	 * @return String
 	 */
 	public String getJobTitle() {
 		return this.jobTitle;
@@ -105,8 +92,8 @@ public class Staff implements Serializable{
 
 	
 	/** 
-	 * This method sets the job title
-	 * @param jobTitle set job title
+	 * this sets the job title
+	 * @param jobTitle
 	 */
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;

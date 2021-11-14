@@ -2,7 +2,6 @@ package manager;
 import java.util.*;
 import entity.MenuItem;
 /**
- * This class contains methods that help create or update menu items
  * @author Xin Kai
  * @version 1.3
  * @since 2021-10-22
@@ -11,7 +10,7 @@ public class MenuItemManager {
 
     
 	/** 
-	 * This method creates menu item
+	 * this creates menu item
 	 * @return MenuItem
 	 */
 	public static MenuItem createMenuItem() {
@@ -68,8 +67,8 @@ public class MenuItemManager {
 	
 	
 	/** 
-	 * This method updates menu item
-	 * @param menuItem menu item object to update
+	 * this updates menu item
+	 * @param menuItem
 	 */
 	public static void updateMenuItem(MenuItem menuItem) {
 		Scanner sc = new Scanner(System.in);	
