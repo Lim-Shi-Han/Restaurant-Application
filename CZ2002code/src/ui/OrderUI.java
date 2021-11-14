@@ -151,19 +151,19 @@ public class OrderUI implements SingaporeConstants{
                             System.out.println();
                             OrderManager.orderPromotionPrintNamePrice(promotionArray);
                             System.out.println("**********************************");
-                            System.out.format("Subtotal price: %-5s%.2f",Currency, totalPrice);
-                            System.out.format("GST: %-5s%.2f",Currency, (totalPrice*GST));
-                            System.out.format("Service charge: %-5s%.2f", Currency, (totalPrice*service_charge));
+                            System.out.format("Subtotal price: %-5s%.2f\n",Currency, totalPrice);
+                            System.out.format("GST: %-5s%.2f\n",Currency, (totalPrice*GST));
+                            System.out.format("Service charge: %-5s%.2f\n", Currency, (totalPrice*service_charge));
                             //members get 10% off total bill
                             if(isMember){
-                                System.out.format("Discount: %-5s%.2f", Currency, (totalPrice*restaurant_member_discount));
+                                System.out.format("Discount: %-5s%.2f\n", Currency, (totalPrice*restaurant_member_discount));
                             }
                             System.out.println("==================================");
                             if(isMember){
-                                System.out.format("TOTAL DUE: %-5s%.2f", Currency, (totalPrice*(1 + service_charge + GST - restaurant_member_discount)) );
+                                System.out.format("TOTAL DUE: %-5s%.2f\n", Currency, (totalPrice*(1 + service_charge + GST - restaurant_member_discount)) );
                             }
                             else{
-                                System.out.format("TOTAL DUE: %-5s%.2f", Currency, (totalPrice*(1 + service_charge + GST)) );
+                                System.out.format("TOTAL DUE: %-5s%.2f\n", Currency, (totalPrice*(1 + service_charge + GST)) );
                             }
                             System.out.println("==================================");
                             System.out.println("See you again soon!");

@@ -14,7 +14,7 @@ public class OrderManager {
         int menuItemArraySize = menuItemArray.size();
 		System.out.println("List of menu item in your order");
 		for(int i = 0; i < menuItemArraySize; i++) {
-			System.out.format("%-10d%-50s%16.2f\n",(i+1), menuItemArray.get(i).getName(), menuItemArray.get(i).getPrice());
+			System.out.format("%-10d%-20s%16.2f\n",(i+1), menuItemArray.get(i).getName(), menuItemArray.get(i).getPrice());
 		}
     }
 
