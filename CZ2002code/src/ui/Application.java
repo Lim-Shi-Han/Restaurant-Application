@@ -61,7 +61,7 @@ public class Application {
 						break;
         
 					case 7: 
-						MenuDisplay.menuPrintName();
+						MenuDisplay.CustomerMenuPrintName();
 						break;
                     
                     case 8:
