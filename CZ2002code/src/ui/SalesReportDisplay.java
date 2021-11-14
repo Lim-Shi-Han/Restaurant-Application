@@ -1,6 +1,8 @@
 package ui;
 import java.util.*;
 import java.time.*;
+import java.time.format.DateTimeParseException;
+
 import database.SalesReport;
 import manager.DatabaseManager;
 import entity.Order;
@@ -73,7 +75,11 @@ public class SalesReportDisplay {
             }
         }catch (InputMismatchException e){
             System.out.println("Your input type was wrong!");
-        }       
+        }catch (NullPointerException e){
+            System.out.println("Cannot input a future date!");
+        }catch (DateTimeParseException e){
+            System.out.println("Wrong format of date!");
+        }
     }
 
     public static void printMonthlySales(){
@@ -145,7 +151,11 @@ public class SalesReportDisplay {
             }
         }catch (InputMismatchException e){
             System.out.println("Your input type was wrong!");
-        }  
+        }catch (NullPointerException e){
+            System.out.println("Cannot input a future date!");
+        }catch (DateTimeParseException e){
+            System.out.println("Wrong format of date!");
+        }
 
     }
 
