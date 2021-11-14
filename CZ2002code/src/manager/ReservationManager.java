@@ -38,7 +38,7 @@ public class ReservationManager {
                     return;
             }
         }
-        System.out.println("The reservation has not been found!");
+        System.out.println("No such reservation found in the database!");
     }
 
     public static Reservation reservationRemove(String reservationID){
@@ -66,12 +66,10 @@ public class ReservationManager {
                 if(tableList.getTableList().get(tableNumber).getReservationArray().get(i).getReservationID().equals(fullReservationID)){
                     tableList.getTableList().get(tableNumber).getReservationArray().remove(i);
                     found++;
+                    break;
                 }
             }
         }
-
-        DatabaseManager.fileWrite(reservationList, "reservation.bin");
-        DatabaseManager.fileWrite(tableList, "table.bin");
 
         //if matching reservationID not found in either reservationList or table
         if (found != 1){
@@ -80,6 +78,8 @@ public class ReservationManager {
         }
 
         //if matching reservationID found in both reservationList and table
+        DatabaseManager.fileWrite(reservationList, "reservation.bin");
+        DatabaseManager.fileWrite(tableList, "table.bin");
         System.out.println(fullReservationID + " has been removed!");
         return removedReservation;
     }
