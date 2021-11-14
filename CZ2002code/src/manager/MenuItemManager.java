@@ -1,10 +1,19 @@
 package manager;
 import java.util.*;
 import entity.MenuItem;
-
+/**
+ * @author Xin Kai
+ * @version 1.3
+ * @since 2021-10-22
+*/
 public class MenuItemManager {
 
-    public static MenuItem createMenuItem() {
+    
+	/** 
+	 * this creates menu item
+	 * @return MenuItem
+	 */
+	public static MenuItem createMenuItem() {
 		Scanner sc= new Scanner(System.in);
         String foodType;
 
@@ -56,6 +65,11 @@ public class MenuItemManager {
         return newMenuItem;
 	}
 	
+	
+	/** 
+	 * this updates menu item
+	 * @param menuItem
+	 */
 	public static void updateMenuItem(MenuItem menuItem) {
 		Scanner sc = new Scanner(System.in);	
 		

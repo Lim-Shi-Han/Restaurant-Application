@@ -1,8 +1,18 @@
 package manager;
 import java.io.*;
-
+/**
+ * @author Sahaj
+ * @version 1.1
+ * @since 2021-10-22
+*/
 public class DatabaseManager {
 
+    
+    /** 
+     * this writes instances of the class into the database
+     * @param object
+     * @param fileName
+     */
     public static void fileWrite(Object object, String fileName) {//general write method
 		try {	
 			ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fileName));
@@ -15,7 +25,13 @@ public class DatabaseManager {
 		}
 	}
 
-	public static Object fileRead(String fileName) {//general read method
+	
+    /** 
+     * this reads instances of the class from the database
+     * @param Object(
+     * @return Object
+     */
+    public static Object fileRead(String fileName) {//general read method
 		Object object = new Object();
         try{
             ObjectInputStream is = new ObjectInputStream(new FileInputStream(fileName));

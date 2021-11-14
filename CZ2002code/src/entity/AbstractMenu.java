@@ -1,7 +1,9 @@
 package entity;
 
 import java.io.Serializable;
-
+/**
+ * 
+ */
 abstract class AbstractMenu implements Serializable{
     private String name;
     private String description;

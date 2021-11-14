@@ -2,10 +2,19 @@ package manager;
 import java.util.*;
 import entity.MenuItem;
 import entity.Promotion;
-
+/**
+ * @author Anant
+ * @version 1.0
+ * @since 2021-10-22
+*/
 
 public class OrderManager {
 
+    
+    /** 
+     * 
+     * @param menuItemArray
+     */
     public static void orderMenuItemPrintNamePrice(ArrayList<MenuItem> menuItemArray){
         if(menuItemArray.size() == 0){
             System.out.println("You have no menu item in your order!");
@@ -18,6 +27,10 @@ public class OrderManager {
 		}
     }
 
+    
+    /** 
+     * @param promotionArray
+     */
     public static void orderPromotionPrintNamePrice(ArrayList<Promotion> promotionArray){
         if(promotionArray.size() == 0){
             System.out.println("You have no promotion in your order!");
