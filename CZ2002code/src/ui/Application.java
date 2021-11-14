@@ -23,12 +23,13 @@ public class Application {
                         + "(8) Order\n"//includes creating, viewing or changing order
                         + "(9) Create Reservation Booking\n"
                         + "(10) Check Reservation Booking\n"
-                        + "(11) Remove Reservation Booking\n"
-                        + "(12) Check Expired Reservation Booking \n"
-						+ "(13) Walk in \n"
-						+ "(14) Leave table\n"
-                        + "(15) View Sales Report\n"
-						+ "(16) Quit\n"
+						+ "(11) Print all Reservations\n"
+                        + "(12) Remove Reservation Booking\n"
+                        + "(13) Check Expired Reservation Booking \n"
+						+ "(14) Walk in \n"
+						+ "(15) Leave table\n"
+                        + "(16) View Sales Report\n"
+						+ "(17) Quit\n"
 						+ "Enter the number of your choice: ");
     
 				choice = sc.nextInt();
@@ -74,28 +75,32 @@ public class Application {
                     case 10:
                         ReservationUI.checkReservation();
                         break;
-                    
-                    case 11:
+					
+					case 11:
+						ReservationUI.printAllReservations();
+						break;
+					
+                    case 12:
                         ReservationUI.removeReservation();
                         break;
                     
-                    case 12:
+                    case 13:
                         ReservationUI.checkExpired();
                         break;
 					
-					case 13:
+					case 14:
 						ReservationUI.walkIn();
 						break;
 					
-					case 14:
+					case 15:
 						ReservationUI.leaveTable();
 						break;
                     
-					case 15:
+					case 16:
 						SalesReportDisplay.printSales();
 						break;                    
             
-					case 16: 
+					case 17: 
 						System.out.println("Quitting...");
 						break;
         
@@ -110,7 +115,7 @@ public class Application {
 			
  			System.out.println();
 			
- 		}while(choice != 16);
+ 		}while(choice != 17);
 
     }
     

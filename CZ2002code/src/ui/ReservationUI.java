@@ -123,7 +123,7 @@ public class ReservationUI{
         LocalTime early = LocalTime.parse("09:30");
         LocalTime late = LocalTime.parse("21:30");
         if(now.isBefore(early) || now.isAfter(late)) {
-			System.out.println("We only accept bookings from 09:30 to 21:30!");
+			System.out.println("We only accept walk ins from 09:30 to 21:30!");
 			return;
 		}
         System.out.println("How many people:");
@@ -144,5 +144,9 @@ public class ReservationUI{
 
     public static void checkExpired(){
         ReservationManager.expireCheck();
+    }
+
+    public static void printAllReservations(){
+        ReservationManager.allReservationsPrint();
     }
 }

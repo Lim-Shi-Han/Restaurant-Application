@@ -130,15 +130,15 @@ public class ReservationManager {
 
         for(int i = 0; i < tableList.getTableList().size(); i++){
             //find tables with large enough capacity
-            if(numberOfPeople <= tableList.getTableList().get(i).getSeating()){
+            if(numberOfPeople <= tableList.getTableList().get(i).getSeating() && !tableList.getTableList().get(i).getIsOccupied()){
                 int available = 1;
                 ArrayList<Reservation> reservationArray = tableList.getTableList().get(i).getReservationArray();
                 //check all the reservations of table
                 for(int j = 0; j < reservationArray.size(); j++){
                     //check if any date clashes
                     if(reservationArray.get(j).getReservationDate().equals(now)){
-                        //check if new reservation is within 90 mins of another reservation and if seat is occupied
-                        if(LocalTime.now().isAfter(reservationArray.get(j).getReservationTime().minusMinutes(90)) && LocalTime.now().isBefore(reservationArray.get(j).getReservationTime().plusMinutes(90)) && !tableList.getTableList().get(j).getIsOccupied()){
+                        //check if new reservation is within 90 mins of another reservation
+                        if(LocalTime.now().isAfter(reservationArray.get(j).getReservationTime().minusMinutes(90)) && LocalTime.now().isBefore(reservationArray.get(j).getReservationTime().plusMinutes(90))){
                             //if above conditions are met, that means current reservation clashes with another reservation
                             available = 0;
                             break;
@@ -243,6 +243,16 @@ public class ReservationManager {
         String tableNumberString = reservationID.substring(0, spaceIndex);
         int tableNumber = Integer.valueOf(tableNumberString);
         return tableNumber;
+    }
+
+    public static void allReservationsPrint(){
+        ReservationList reservationList = (ReservationList) DatabaseManager.fileRead("reservation.bin");
+        if (reservationList.getReservationArray().size() == 0){
+            System.out.println("No reservations recorded!");
+        }
+        for(int i = 0; i < reservationList.getReservationArray().size() ; i++){
+            System.out.println(reservationList.getReservationArray().get(i).getReservationID() + " " + reservationList.getReservationArray().get(i).getCustomerName());
+        }
     }
     
 }
