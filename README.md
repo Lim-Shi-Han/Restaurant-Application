@@ -9,3 +9,7 @@ To gain a clearer picture of our application and its functionalities, please cli
 https://youtu.be/krPcLAjpbpw
 
 [![Watch the video](https://img.youtube.com/vi/krPcLAjpbpw/maxresdefault.jpg)](https://youtu.be/krPcLAjpbpw)
+
+## Tech Stack
+- Source code: Java
+- Documentation: HTML
