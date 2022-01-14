@@ -8,7 +8,7 @@ To gain a clearer picture of our application and its functionalities, please cli
 
 https://youtu.be/krPcLAjpbpw
 
-[![Watch the video]![](https://img.youtube.com/vi/krPcLAjpbpw/maxresdefault.jpg =250x250)](https://youtu.be/krPcLAjpbpw)
+[![Watch the video](https://img.youtube.com/vi/krPcLAjpbpw/maxresdefault.jpg){:height="50%" width="50%"}](https://youtu.be/krPcLAjpbpw)
 
 ## Tech Stack
 - Source code: Java
