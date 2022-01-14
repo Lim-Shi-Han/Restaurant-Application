@@ -6,4 +6,4 @@ Our team's objective is to use object-oriented programming concepts to build a c
 
 To gain a clearer picture of our application and its functionalities, please access the link to watch our video!
 
-https://img.youtube.com/vi/krPcLAjpbpw/maxresdefault.jpg
+[![Watch the video](https://img.youtube.com/vi/krPcLAjpbpw/maxresdefault.jpg)](https://youtu.be/krPcLAjpbpw)
