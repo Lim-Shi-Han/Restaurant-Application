@@ -4,7 +4,7 @@
 
 Our team's objective is to use object-oriented programming concepts to build a console application that has various functions required by a restaurant, like creating menu items, placing an order and taking reservations among others.
 
-To gain a clearer picture of our application and its functionalities, please click the link or thumbnail below access our video!
+To gain a clearer picture of our application and its functionalities, please click the link or thumbnail below to access our video!
 
 https://youtu.be/krPcLAjpbpw
 
